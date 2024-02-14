@@ -13,7 +13,7 @@ const AboutMe = () => {
                     
                     <div className="flex py-5 items-center">
                         <span className="text-2xl font-mono text-teal-500 mb-4">01. </span>
-                        <span className="flex-shrink mx-4 text-2xl font-semibold text-gray-200 mb-4">About me</span>
+                        <span className="flex-shrink mx-4 text-2xl font-semibold text-gray-300 mb-4">About me</span>
                         <div className="flex-grow border-t border-gray-600 mb-4"></div>
                     </div>
                     <p className="text-gray-500 text-justify mt-4">
@@ -59,7 +59,7 @@ const AboutMe = () => {
                     </ul>
                 </div>
                 <div className="group w-full h-full mt-5 justify-center items-stretch rounded-sm border-l-sky-300">
-                    <div className="flex items-center justify-center h-full w-full bottom-10 opacity-20 group-hover:opacity-100 transition-all duration-300">
+                    <div className="flex items-center justify-center h-full w-full bottom-10 opacity-20 cyan-300/10 group-hover:opacity-100 transition-all duration-300">
                         {/* <img className="w-80 h-80 object-scale-down" src={"/about.jpeg"} alt="" style={imageStyle} /> */}
                         <Image src="/about.jpeg" width={500} height={500} alt="" style={imageStyle}/>
                     </div>
