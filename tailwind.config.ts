@@ -27,6 +27,7 @@ const config: Config = {
             black: colors.black,
             white: colors.white,
             gray: colors.gray,
+            slate: colors.slate,
             cyan: colors.cyan,
             teal: colors.teal,
             blue: colors.blue,

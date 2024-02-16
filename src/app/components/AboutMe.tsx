@@ -2,21 +2,21 @@ import React from "react";
 import Image from "next/image";
 
 const imageStyle = {
-    borderRadius: '4px'
+    borderRadius: '4px',
 }
 
 const AboutMe = () => {
     return (
-        <section className="test-white mt-20 md:mt-40" id="about">
+        <section className="" id="about">
             <div className="md:grid md:grid-cols-2 items-center gap-8 px-4 py-8 xl:gap-16 sm:py-16 ">
                 <div className="mt-4 md:mt-0 flex flex-col h-full">
-                    
+
                     <div className="flex py-5 items-center">
-                        <span className="text-2xl font-mono text-teal-500 mb-4">01. </span>
-                        <span className="flex-shrink mx-4 text-2xl font-semibold text-gray-300 mb-4">About me</span>
+                        <span className="text-xl font-mono text-teal-500 mb-4">01. </span>
+                        <span className="flex-shrink mx-4 text-xl font-semibold text-gray-300 mb-4">About me</span>
                         <div className="flex-grow border-t border-gray-600 mb-4"></div>
                     </div>
-                    <p className="text-gray-500 text-justify mt-4">
+                    <p className="text-slate-400 text-left mt-4 text-base">
                         Hello! My name is Manas(often go by sin3point14) and I enjoy creating things that have visual impact. My interest in development started back in my highschool when i discovered html/css and tried my hand at learning it.
                         Fast-forward to today, I'm into my fourth year of engineering at IIT Roorkee and have explored various field of computer science and software development as part of SDSLabs, a college group oriented towards software development. I've completed several internships to vouch for my skills. I've spent a good amount of time at low level programming and trying to break things by reverse engineering them.
                         <br></br>
@@ -59,9 +59,9 @@ const AboutMe = () => {
                     </ul>
                 </div>
                 <div className="group w-full h-full mt-5 justify-center items-stretch rounded-sm border-l-sky-300">
-                    <div className="flex items-center justify-center h-full w-full bottom-10 opacity-20 cyan-300/10 group-hover:opacity-100 transition-all duration-300">
+                    <div className="flex items-center justify-center h-full w-full bottom-10">
                         {/* <img className="w-80 h-80 object-scale-down" src={"/about.jpeg"} alt="" style={imageStyle} /> */}
-                        <Image src="/about.jpeg" width={500} height={500} alt="" style={imageStyle}/>
+                        <img src="/about.jpeg" width={300} height={300} alt="" className="opacity-20 cyan-300/10 group-hover:opacity-80 hover:border-2 hover:border-cyan-300/80 transition-opacity duration-300" />
                     </div>
                 </div>
             </div>

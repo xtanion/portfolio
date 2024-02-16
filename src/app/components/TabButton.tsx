@@ -1,6 +1,12 @@
 import React from "react";
 
-const TabButton = ({active, selectTab, children}) => {
+interface TabButtonProps {
+    active: boolean;
+    selectTab: () => void;
+    children: React.ReactNode;
+}
+
+const TabButton: React.FC<TabButtonProps> = ({active, selectTab, children}) => {
     const buttonClasses = active ? 'text-teal-400 border-l border-teal-400' : 'text-gray-500'
     return (
         <button onClick={selectTab} className="rounded-sm">
