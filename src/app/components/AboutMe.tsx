@@ -1,67 +1,35 @@
 import React from "react";
 import Image from "next/image";
+import Chips from "./Chips";
 
 const imageStyle = {
     borderRadius: '4px',
 }
 
+const tech = ["Python", "Java", "JavaScript", "TypeScript", "React", "Node.js", "Redis", "Docker", "Open-gl", "Web-gl", "glsl"];
+
 const AboutMe = () => {
     return (
-        <section className="" id="about">
-            <div className="md:grid md:grid-cols-2 items-center gap-8 px-4 py-8 xl:gap-16 sm:py-16 ">
+        <section className="max-w-[800px] mx-auto text-sm md:text-base xl:text-md" id="about">
+            <div className="md:grid md:grid-cols-2 items-center gap-8 py-8 xl:gap-16 sm:py-16 ">
                 <div className="mt-4 md:mt-0 flex flex-col h-full">
 
                     <div className="flex py-5 items-center">
-                        <span className="text-xl font-mono text-teal-500 mb-4">01. </span>
-                        <span className="flex-shrink mx-4 text-xl font-semibold text-gray-300 mb-4">About me</span>
-                        <div className="flex-grow border-t border-gray-600 mb-4"></div>
+                        <span className="text-xl font-mono text-teal-500">01. </span>
+                        <span className="flex-shrink mx-4 text-xl font-semibold text-gray-300 min-w-max">About me</span>
+                        <hr className="h-px w-full my-8 bg-slate-600/60 border-0"></hr>
                     </div>
-                    <p className="text-slate-400 text-left mt-4 text-base">
-                        Hello! My name is Manas(often go by sin3point14) and I enjoy creating things that have visual impact. My interest in development started back in my highschool when i discovered html/css and tried my hand at learning it.
-                        Fast-forward to today, I'm into my fourth year of engineering at IIT Roorkee and have explored various field of computer science and software development as part of SDSLabs, a college group oriented towards software development. I've completed several internships to vouch for my skills. I've spent a good amount of time at low level programming and trying to break things by reverse engineering them.
-                        <br></br>
-                        I participate(and win!) a lot of CTFs which have greatly contributed to my knowledge in information security, mainly the fields of reverse engineering and binary exploitation.
-                        <br></br>
+                    <p className="text-slate-400 text-left mt-4">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Diam maecenas sed enim ut sem viverra aliquet. Imperdiet nulla malesuada pellentesque elit. Pharetra diam sit amet nisl suscipit adipiscing bibendum. Justo nec ultrices dui sapien eget mi proin sed libero. Pharetra massa massa ultricies mi quis. Tellus in metus vulputate eu. Egestas egestas fringilla phasellus faucibus scelerisque. Sit amet nisl suscipit adipiscing bibendum est ultricies integer. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed.<br></br>
                         <br></br>
                         Here are a few technologies I’ve been working with recently:
                     </p>
-                    <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
-                        <li className="mr-1.5 mt-2">
-                            <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-mono leading-5 text-teal-300 ">JavaScript</div>
-                        </li>
-                        <li className="mr-1.5 mt-2">
-                            <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-mono leading-5 text-teal-300 ">TypeScript</div>
-                        </li>
-                        <li className="mr-1.5 mt-2">
-                            <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-mono leading-5 text-teal-300 ">HTML &amp; SCSS</div>
-                        </li>
-                        <li className="mr-1.5 mt-2">
-                            <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-mono leading-5 text-teal-300 ">React</div>
-                        </li>
-                        <li className="mr-1.5 mt-2">
-                            <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-mono leading-5 text-teal-300 ">Next.js</div>
-                        </li>
-                        <li className="mr-1.5 mt-2">
-                            <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-mono leading-5 text-teal-300 ">React Native</div>
-                        </li>
-                        <li className="mr-1.5 mt-2">
-                            <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-mono leading-5 text-teal-300 ">WordPress</div>
-                        </li>
-                        <li className="mr-1.5 mt-2">
-                            <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-mono leading-5 text-teal-300 ">Contentful</div>
-                        </li>
-                        <li className="mr-1.5 mt-2">
-                            <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-mono leading-5 text-teal-300 ">Node.js</div>
-                        </li>
-                        <li className="mr-1.5 mt-2">
-                            <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-mono leading-5 text-teal-300 ">PHP</div>
-                        </li>
-                    </ul>
+                    <Chips chips={tech} />
                 </div>
                 <div className="group w-full h-full mt-5 justify-center items-stretch rounded-sm border-l-sky-300">
                     <div className="flex items-center justify-center h-full w-full bottom-10">
                         {/* <img className="w-80 h-80 object-scale-down" src={"/about.jpeg"} alt="" style={imageStyle} /> */}
-                        <img src="/about.jpeg" width={300} height={300} alt="" className="opacity-20 cyan-300/10 group-hover:opacity-80 hover:border-2 hover:border-cyan-300/80 transition-opacity duration-300" />
+                        <img src="/profile.jpeg" width={300} height={300} alt="" className="opacity-20 cyan-300/10 group-hover:opacity-80 hover:border-2 hover:border-cyan-300/80 transition-opacity duration-300" />
                     </div>
                 </div>
             </div>

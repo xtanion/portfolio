@@ -74,13 +74,14 @@ const Experience = () => {
         })
     }
     return (
-        <section className="mt-20" id="experience">
-            <div className="md:grid md:grid-cols-2 gap-8 items-center xl:gap-16 sm:py-16 ">
+        <section className="mt-20 max-w-[800px] mx-auto text-sm md:text-base xl:text-md" id="experience">
+            <div className="md:grid md:grid-cols-2 gap-4 items-center xl:gap-8 sm:py-16 ">
                 <div className="mt-6 md:mt-0 text-justify flex flex-col h-full">
                     <div className="relative flex py-5 items-center">
-                        <span className="text-xl font-mono text-teal-500 mb-4">02. </span>
-                        <span className="flex-shrink mx-4 text-xl font-semibold text-gray-300 mb-4 text-wrap line-clamp-1">Experiences gained</span>
-                        <div className="flex-grow border-t border-slate-600 mb-4"></div>
+                        <span className="text-xl font-mono text-teal-500">02. </span>
+                        <span className="flex-shrink mx-4 text-xl font-semibold text-gray-300 text-wrap min-w-max">Experiences gained</span>
+                        {/* <div className="flex-grow border-t border-slate-600 mb-4"></div> */}
+                        <hr className="h-px w-full my-8 bg-slate-600/60 border-0"></hr>
                     </div>
                     <div className="flex flex-col border-double border-l-2 border-slate-500/20">
                         <TabButton selectTab={() => handleTabChange("hcx")} active={tab === "hcx"}>HCX API</TabButton>
@@ -91,9 +92,6 @@ const Experience = () => {
                 <div id="myTabContent" className="md:mt-20 sm:mt-10">
                     <div className="mt-8">
                         {TAB_DATA.find((t) => t.id === tab)?.content}
-                    </div>
-                    <div className="p-4 rounded-sm hidden" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
-                        <p className="text-slate-500 dark:text-slate-400 text-sm">This is some placeholder content the <strong className="font-medium text-slate-800 dark:text-white">Dashboard tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
                     </div>
                 </div>
 
