@@ -18,7 +18,7 @@ const projects:Array<ProjectProps> = [
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         github: "https://github.com/xtanion",
         url: "https://github.com/xtanion",
-        imgsrc: "https://placehold.co/854x480",
+        imgsrc: "p1.avif",
         right: false,
         techs: ["Python", "Numpy", "C"]
     },

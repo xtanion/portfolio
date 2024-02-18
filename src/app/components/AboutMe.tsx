@@ -29,7 +29,7 @@ const AboutMe = () => {
                 <div className="group w-full h-full mt-5 justify-center items-stretch rounded-sm border-l-sky-300">
                     <div className="flex items-center justify-center h-full w-full bottom-10">
                         {/* <img className="w-80 h-80 object-scale-down" src={"/about.jpeg"} alt="" style={imageStyle} /> */}
-                        <img src="/profile.jpeg" width={300} height={300} alt="" className="opacity-20 cyan-300/10 group-hover:opacity-80 hover:border-2 hover:border-cyan-300/80 transition-opacity duration-300" />
+                        <img src="/profile.jpeg" width={300} height={300} alt="" className="grayscale opacity-40 bg-teal-400 hover:grayscale-0 hover:opacity-100 transition-all duration-500 rounded-sm" />
                     </div>
                 </div>
             </div>
