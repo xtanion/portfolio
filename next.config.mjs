@@ -1,12 +1,12 @@
-// @ts-check
+/** @type {import('next').NextConfig} */
 
-export default (phase, { defaultConfig }) => {
-    /**
-     * @type {import('next').NextConfig}
-     */
-    const nextConfig = {
-        /* config options here */
-        output: "export",
-    }
-    return nextConfig
-}
+const nextConfig = {
+    /* config options here */
+    output: "export",
+    basePath: "/portfolio",
+    images: {
+        unoptimized: true,
+    },
+};
+
+export default nextConfig;
