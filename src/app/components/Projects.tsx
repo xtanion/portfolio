@@ -1,6 +1,5 @@
 import React from "react";
 import ProjectComponent from "./ProjectComponent";
-import ProjectComponentR from "./ProjectComponentR";
 
 interface ProjectProps {
     title: string,
@@ -46,8 +45,8 @@ const Projects = () => {
     return (
         <section className="max-w-[900px] mx-auto my-10 text-sm md:text-base xl:text-md">
             <div className="flex py-5 items-center">
-                <span className="text-xl font-mono text-teal-500">03. </span>
-                <span className="flex-shrink mx-4 text-xl font-semibold text-gray-300 min-w-max">Some Things I’ve Built</span>
+                <span className="text-xl font-mono text-teal-400">03. </span>
+                <span className="flex-shrink mx-4 text-xl font-bold text-gray-200 min-w-max">Some Things I’ve Built</span>
                 <hr className="h-px w-full my-8 bg-slate-600/60 border-0 max-w-40"></hr>
             </div>
             {

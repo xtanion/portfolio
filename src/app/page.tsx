@@ -5,6 +5,7 @@ import AboutMe from "./components/AboutMe";
 import Experience from "./components/Experience";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
+import Contacts from "./components/Contacts";
 import { useScroll, useTransform, motion } from "framer-motion"
 import { useEffect, useRef, useState } from "react";
 
@@ -61,7 +62,13 @@ export default function Home() {
                     <AboutMe />
                     <Experience />
                     <Projects />
+                    <Contacts />
                 </div>
+                <footer>
+                    <a href="https://github.com/xtanion/portfolio">
+                        <p className="text-xs text-slate-400">Made using <span className="font-mono text-teal-300">Next.js</span> and <span className="font-mono text-teal-300">tailwind</span>🐧.</p>
+                    </a>
+                </footer>
 
             </main>
         </>

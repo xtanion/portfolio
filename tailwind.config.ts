@@ -34,10 +34,11 @@ const config: Config = {
             sky: colors.sky,
             purple: colors.purple,
             fushchia: colors.fushchia,
-            indigo: colors.indigo
+            indigo: colors.indigo,
+            yellow: colors.yellow
         },
         listStyleImage: {
-            right: 'url("/public/about.jpeg")',
+            right: 'url("/public/arrow.svg")',
         }
     },
     plugins: [],
