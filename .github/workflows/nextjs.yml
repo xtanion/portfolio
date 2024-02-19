@@ -77,6 +77,8 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }} next build     
       - name: Print current path
         run: pwd
+      - name: Print files & directories
+        run: ls -a
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
