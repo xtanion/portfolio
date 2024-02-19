@@ -5,7 +5,7 @@ const Contacts = () => {
         <section className="max-w-[600px] mx-auto mb-28 text-sm md:text-base xl:text-md text-center">
             <div className="flex py-5 items-center">
                 <span className="text-xl font-mono text-teal-400">04. </span>
-                <span className="flex-shrink mx-4 text-xl font-bold text-slate-200 min-w-max">What's next</span>
+                <span className="flex-shrink mx-4 text-xl font-bold text-slate-200 min-w-max">What&apos;s next</span>
                 <hr className="h-px w-full my-8 bg-slate-600/60 border-0 max-w-64"></hr>
             </div>
             <div className=" justify-center">

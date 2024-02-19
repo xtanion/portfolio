@@ -50,8 +50,8 @@ const Projects = () => {
                 <hr className="h-px w-full my-8 bg-slate-600/60 border-0 max-w-40"></hr>
             </div>
             {
-                projects.map((projPromp) => (
-                    <ProjectComponent prop={projPromp}/>
+                projects.map((projPromp, index) => (
+                    <ProjectComponent key={index} prop={projPromp}/>
                 ))
             }
         </section>
