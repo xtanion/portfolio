@@ -41,6 +41,9 @@ const config: Config = {
             right: 'url("/public/arrow.svg")',
         }
     },
-    plugins: [],
+    plugins: [
+        require('tailwind-scrollbar'),
+
+    ],
 };
 export default config;

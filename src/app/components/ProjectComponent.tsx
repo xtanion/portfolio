@@ -1,6 +1,25 @@
 import React from "react";
 import Chips from "./Chips";
 import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
+import { animate, motion } from "framer-motion";
+
+const fadeUpAnimation = {
+    initial: {
+        opacity: 0,
+        y: 100
+    },
+    animate: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.5
+        }
+    },
+    exit: {
+        opacity: 0,
+        y: -100
+    },
+}
 
 interface PropProps {
     title: string,
@@ -19,7 +38,9 @@ const ProjectComponent: React.FC<ProjectProps> = ({ prop }) => {
     const alignCon = prop.right ? "col-start-7 col-end-[-1] row-start-1 row-end-[-1] text-right" : "col-start-1 col-end-8 row-start-1 row-end-[-1]";
     const alignImg = prop.right ? "col-start-1 col-end-8 row-start-1 row-end-[-1] text-right" : "col-start-7 col-end-[-1] row-start-1 row-end-[-1]"
     return (
-        <div className="project-img relative grid grid-cols-12 gap-2 items-center mb-20 md:mb-24">
+        <motion.div
+            variants={fadeUpAnimation} initial="initial" whileInView="animate" viewport={{ once: true }}
+            className="project relative grid grid-cols-12 gap-2 items-center mb-20 md:mb-24">
             <div className={`"project-image block relative" ${alignImg}`}>
                 <div className="rounded-sm overflow-clip">
                     <img src={prop.imgsrc} className="img w-full object-cover grayscale opacity-90 bg-teal-400 hover:grayscale-0 hover:opacity-100 transition-all duration-500" />
@@ -50,7 +71,7 @@ const ProjectComponent: React.FC<ProjectProps> = ({ prop }) => {
                 </div>
             </div>
 
-        </div>
+        </motion.div>
     );
 };
 

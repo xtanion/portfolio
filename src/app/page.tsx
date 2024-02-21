@@ -6,7 +6,6 @@ import Experience from "./components/Experience";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Contacts from "./components/Contacts";
-import { useScroll, useTransform, motion } from "framer-motion"
 import { useEffect, useRef, useState } from "react";
 
 

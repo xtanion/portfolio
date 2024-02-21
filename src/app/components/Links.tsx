@@ -10,7 +10,7 @@ const Links: React.FC<navBar> = ({ href, title }) => {
     return (
         <Link
             href={href}
-            className="block px-4 text-slate-400 font-mono text-sm sm:text-xl rounded md:p-0 hover:text-teal-400"
+            className="block text-center px-4 text-slate-300 font-mono text-sm rounded md:p-0 hover:text-teal-400"
         >
             {title}
         </Link>
