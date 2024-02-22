@@ -50,7 +50,7 @@ const AboutMe = () => {
                         <Chips chips={tech} />
                     </motion.div>
                 </div>
-                <div className="gltf w-full h-full">
+                <div className="gltf w-full h-full min-h-96">
                     <ProfileGltf />
                 </div>
             </div>

@@ -12,7 +12,6 @@ import isMobile from "./check";
 export default function Home() {
     const heroRef = useRef<HTMLDivElement>(null);
     const mobile = isMobile();
-    if (!mobile) {
         useEffect(() => {
             const updateMousePosition = (ev: MouseEvent) => {
                 if (!heroRef.current) return;
@@ -22,14 +21,15 @@ export default function Home() {
                 heroRef.current.style.setProperty("--x", `${clientX}px`);
                 heroRef.current.style.setProperty("--y", `${clientY + pageScoll}px`);
             };
-
-            window.addEventListener("mousemove", updateMousePosition);
-
+            if (!mobile) {
+                window.addEventListener("mousemove", updateMousePosition);
+            }
             return () => {
-                window.removeEventListener("mousemove", updateMousePosition);
+                if (!mobile) {
+                    window.removeEventListener("mousemove", updateMousePosition);
+                }
             };
         }, []);
-    }
     return (
         // <main className="flex min-h-screen flex-col bg-gradient-radial">
         //     <Navbar />

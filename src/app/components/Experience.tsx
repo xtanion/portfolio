@@ -107,7 +107,7 @@ const Experience = () => {
                 <div className="mt-6 md:mt-0 text-justify flex flex-col h-full">
                     <div className="relative flex py-5 items-center">
                         <span className="text-xl font-mono text-teal-400">02. </span>
-                        <span className="flex-shrink mx-4 text-xl font-bold text-slate-200 text-wrap min-w-max">Experiences gained</span>
+                        <span className="flex-shrink mx-4 text-xl font-black text-slate-200 text-wrap min-w-max">Experiences gained</span>
                         {/* <div className="flex-grow border-t border-slate-600 mb-4"></div> */}
                         <hr className="h-px w-full my-8 bg-slate-600/60 border-0"></hr>
                     </div>
