@@ -31,7 +31,7 @@ const CustomItem: React.FC<any> = ({ data }) => {
     return (
         <li className="my-2 relative shrink-0">
             <svg className="w-[16px] h-[16px] stroke-teal-300 absolute left-0" data-slot="icon" fill="none" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
             </svg>
             <p className="pl-6 text-sm md:text-base xl:text-base text-slate-300">{data}</p>
         </li>

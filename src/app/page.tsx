@@ -45,7 +45,7 @@ export default function Home() {
             <style jsx>{`
         .hero {
           background-image: radial-gradient(
-            800px circle at var(--x, 20px) var(--y, 20px),
+            500px circle at var(--x, 20px) var(--y, 20px),
             rgba(29, 78, 216, 0.15), transparent 100%
           );
           display: flex;
