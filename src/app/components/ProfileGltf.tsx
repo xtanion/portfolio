@@ -1,6 +1,7 @@
 import { Stats, OrbitControls, Circle } from '@react-three/drei'
 import { Canvas, useLoader } from '@react-three/fiber'
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader'
+// import { GLTFLoader } from 'three/addons/loaders/GLTFLoader'
+import { GLTFLoader } from 'three/examples/jsm/Addons.js'
 
 export default function ProfileGltf() {
     const gltf = useLoader(GLTFLoader, './earth.glb')

@@ -50,7 +50,7 @@ const ProjectComponent: React.FC<ProjectProps> = ({ prop }) => {
                 <div>
                     <p className="font-mono text-teal-400 text-sm mt-2">Featured Project</p>
                     <h3 className="text-xl font-bold text-slate-200 pb-4">{prop.title}</h3>
-                    <div className="project-desc rounded-md p-6 backdrop-blur-lg bg-slate-900/50 shadow-md">
+                    <div className="project-desc rounded-md p-6 backdrop-blur-lg bg-slate-900/50 shadow-md z-10">
                         <p className="text-sm md:text-sm">{prop.desc}</p>
                     </div>
                     <div className={prop.right ? "justify-right float-right" : ""}>
