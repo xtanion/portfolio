@@ -48,7 +48,7 @@ const TAB_DATA: Array<tabData> = [
                 <span className="text-teal-500 font-bold text-lg"> @ FURY</span>
 
                 <p className="text-slate-500 font-mono font-thin text-sm my-1">Summer 2022</p>
-                <ul className="text-slate-400 list-outside list-image-right marker:text-2xl py-2 max-w-md">
+                <ul className="text-slate-400 list-outside py-2 xl:max-w-xl">
                     <CustomItem data="A library for XR interaction with classical desktop compositors on Linux" />
                     <CustomItem data="Added support for 3D model rendering from glTF format allowing the users to load custom environment scenes along with their virtual workspace in VR." />
                     <CustomItem data="Added the basic 3D rendering infrastructure consisting of basic materials, scene trees, mesh loading, phong shading" />
@@ -66,7 +66,7 @@ const TAB_DATA: Array<tabData> = [
                 <span className="text-teal-500 font-bold text-lg"> @ HCX</span>
 
                 <p className="text-slate-500 font-mono font-thin text-sm my-1">Summer 2023</p>
-                <ul className="text-slate-400 list-outside list-image-[url(/arrow.svg)] marker:text-2xl py-2 max-w-md">
+                <ul className="text-slate-400 list-outside py-2 xl:max-w-xl">
                     <CustomItem data="A library for XR interaction with classical desktop compositors on Linux" />
                     <CustomItem data="Added support for 3D model rendering from glTF format allowing the users to load custom environment scenes along with their virtual workspace in VR." />
                 </ul>
@@ -83,7 +83,7 @@ const TAB_DATA: Array<tabData> = [
                 <span className="text-teal-500 font-bold text-lg"> @ ACM IITR</span>
 
                 <p className="text-slate-500 font-mono font-thin text-sm my-1">March 2022 - Present</p>
-                <ul className="text-slate-400 list-outside list-image-right marker:text-2xl py-2 max-w-md">
+                <ul className="text-slate-400 list-outside list-image-right py-2 xl:max-w-xl">
                     <CustomItem data="A library for XR interaction with classical desktop compositors on Linux" />
                 </ul>
 
@@ -102,7 +102,7 @@ const Experience = () => {
         })
     }
     return (
-        <section className="mt-20 max-w-[850px] min-h-[700px] mx-auto text-sm md:text-base xl:text-md" id="experience">
+        <section className="mt-20 max-w-[900px] min-h-[700px] mx-auto text-sm md:text-base xl:text-md" id="experience">
             <div className="md:grid md:grid-cols-2 gap-4 items-center xl:gap-8 sm:py-16 ">
                 <div className="mt-6 md:mt-0 text-justify flex flex-col h-full">
                     <div className="relative flex py-5 items-center">

@@ -53,7 +53,7 @@ export default function Home() {
         }
 
       `}</style>
-            <main className="flex min-h-screen flex-col hero bg-gray-950 items-center justify-center text-slate-400 font-sans" ref={heroRef}>
+            <main className="flex min-h-screen flex-col hero bg-slate-950 items-center justify-center text-slate-400 font-sans" ref={heroRef}>
                 <Navbar />
 
                 <div className="container mx-auto w-full px-12 md:px-20">
@@ -65,7 +65,7 @@ export default function Home() {
                 </div>
                 <footer>
                     <a href="https://github.com/xtanion/portfolio">
-                        <p className="text-xs text-slate-400">Made using <span className="font-mono text-teal-300">Next.js</span> and <span className="font-mono text-teal-300">tailwind</span>🐧.</p>
+                        <p className="text-xs text-slate-400">Made using <span className="font-mono text-teal-300">Next.js</span>, <span className="font-mono text-teal-300">THREE.js</span> and <span className="font-mono text-teal-300">tailwind</span>🐧.</p>
                     </a>
                 </footer>
 
