@@ -4,9 +4,10 @@ import { Canvas, useLoader } from '@react-three/fiber'
 // import { GLTFLoader } from 'three/addons/loaders/GLTFLoader'
 // import { GLTFLoader } from 'three/examples/jsm/Addons.js'
 import { Earth } from './Earth';
+import isMobile from '../check';
 
 export default function ProfileGltf() {
-
+    const mobile = isMobile();
     return (
         <Canvas camera={{ position: [25, 0, 1] }} shadows>
             <ambientLight color={"0x222222"} />
@@ -21,7 +22,8 @@ export default function ProfileGltf() {
                 position={[0, 0, 0]}
                 children-0-castShadow
             /> */}
-            <OrbitControls autoRotate enablePan={false} enableZoom={false} />
+            {!mobile ?
+                <OrbitControls autoRotate enablePan={false} enableZoom={false} /> : <> </>}
         </Canvas>
     )
 }

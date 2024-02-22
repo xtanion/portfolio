@@ -6,29 +6,30 @@ import Experience from "./components/Experience";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Contacts from "./components/Contacts";
-import { useEffect, useRef, useState } from "react";
-
+import { useEffect, useRef } from "react";
+import isMobile from "./check";
 
 export default function Home() {
     const heroRef = useRef<HTMLDivElement>(null);
-    const [mouseScroll, setMouseScroll] = useState(0);
+    const mobile = isMobile();
+    if (!mobile) {
+        useEffect(() => {
+            const updateMousePosition = (ev: MouseEvent) => {
+                if (!heroRef.current) return;
+                const { clientX, clientY } = ev;
+                const pageScoll = window.pageYOffset;
 
-    useEffect(() => {
-        const updateMousePosition = (ev: MouseEvent) => {
-            if (!heroRef.current) return;
-            const { clientX, clientY } = ev;
-            const pageScoll = window.pageYOffset;
+                heroRef.current.style.setProperty("--x", `${clientX}px`);
+                heroRef.current.style.setProperty("--y", `${clientY + pageScoll}px`);
+            };
 
-            heroRef.current.style.setProperty("--x", `${clientX}px`);
-            heroRef.current.style.setProperty("--y", `${clientY + pageScoll}px`);
-        };
+            window.addEventListener("mousemove", updateMousePosition);
 
-        window.addEventListener("mousemove", updateMousePosition);
-
-        return () => {
-            window.removeEventListener("mousemove", updateMousePosition);
-        };
-    }, []);
+            return () => {
+                window.removeEventListener("mousemove", updateMousePosition);
+            };
+        }, []);
+    }
     return (
         // <main className="flex min-h-screen flex-col bg-gradient-radial">
         //     <Navbar />

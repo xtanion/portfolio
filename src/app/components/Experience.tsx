@@ -33,7 +33,7 @@ const CustomItem: React.FC<any> = ({ data }) => {
             <svg className="w-[16px] h-[16px] stroke-teal-300 absolute left-0" data-slot="icon" fill="none" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
             </svg>
-            <p className="pl-6 text-sm md:text-base xl:text-base text-slate-300">{data}</p>
+            <p className="pl-6 text-sm md:text-base xl:text-base text-slate-400">{data}</p>
         </li>
     )
 };
@@ -111,7 +111,7 @@ const Experience = () => {
                         {/* <div className="flex-grow border-t border-slate-600 mb-4"></div> */}
                         <hr className="h-px w-full my-8 bg-slate-600/60 border-0"></hr>
                     </div>
-                    <div className="flex flex-col border-double border-l-2 border-slate-500/20 text-slate-500">
+                    <div className="flex flex-col text-slate-500">
                         <TabButton selectTab={() => handleTabChange("hcx")} active={tab === "hcx"}>HCX API</TabButton>
                         <TabButton selectTab={() => handleTabChange("gsoc")} active={tab === "gsoc"}>Python Software Foundation</TabButton>
                         <TabButton selectTab={() => handleTabChange("acm")} active={tab === "acm"}>ACM IITR</TabButton>

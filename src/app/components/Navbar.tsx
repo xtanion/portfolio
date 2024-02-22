@@ -29,7 +29,7 @@ const Navbar = () => {
     const [navOpen, setNavOpen] = useState(false);
 
     return (
-        <nav className="left-0 -top-1 right-0 -mt-1 fixed z-10 bg-gray-950 bg-opacity-20 backdrop-blur-md">
+        <nav className="left-0 -top-1 right-0 -mt-1 fixed z-10 bg-slate-950/50  backdrop-blur-xl">
             <div className="flex flex-wrap items-center justify-between mx-auto p-[20px]">
                 <div className="logo font-mono font-bold text-teal-300">
                     <a href="https://github.com/xtanion" target="_blank" rel="noopener noreferrer">x.</a>
