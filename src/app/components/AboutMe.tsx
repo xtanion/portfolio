@@ -45,23 +45,17 @@ const AboutMe = () => {
                             <br></br>
                             Here are a few technologies I&apos;ve been working with recently:
                         </p>
+
+                        <Chips chips={tech} />
                     </motion.div>
-                    
                 </div>
                 <motion.div
-                    variants={fadeUpAnimation} initial="initial" whileInView="animate" viewport={{ once: true }} transition={{delay:1.5}}
+                    variants={fadeUpAnimation} initial="initial" whileInView="animate" viewport={{ once: true }} transition={{ delay: 1.5 }}
                     className="group w-full h-full items-center justify-center rounded-sm border-l-sky-300">
-                    <div className="flex flex-col mt-12 justify-center h-full w-full bottom-10 grayscale opacity-100 md:opacity-50 xl:opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-                        <img
-                            src="./aizawa.png" width={300} alt="" className="rounded-sm w-full" />
-                        <img
-                            src="./lgtm.png" className="opacity-100 scale-50 md:opacity-0 xl:opacity-0 group-hover:opacity-90 group-hover:scale-100 transition-all duration-500 w-full z-10 object-scale-down" />
+                    <div className="flex flex-col justify-center h-full w-full grayscale opacity-100 md:opacity-50 xl:opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+                        <img src="./aizawa.png" width={300} alt="" className="aizawa w-full p-4" />
+                        <img src="./lgtm.png" height={100} className="opacity-100 scale-50 md:opacity-0 xl:opacity-0 group-hover:opacity-90 group-hover:scale-100 transition-all duration-500 z-10" />
                     </div>
-                </motion.div>
-
-                <motion.div
-                    variants={fadeUpAnimation} initial="initial" whileInView="animate" viewport={{ once: true }}>
-                    <Chips chips={tech} />
                 </motion.div>
             </div>
         </section>
