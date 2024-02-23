@@ -7,29 +7,30 @@ import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Contacts from "./components/Contacts";
 import { useEffect, useRef } from "react";
-import isMobile from "./check";
+import useMobileDetect from "./CheckDevice";
 
 export default function Home() {
     const heroRef = useRef<HTMLDivElement>(null);
-    const mobile = isMobile();
-        useEffect(() => {
-            const updateMousePosition = (ev: MouseEvent) => {
-                if (!heroRef.current) return;
-                const { clientX, clientY } = ev;
-                const pageScoll = window.pageYOffset;
+    const mobile = useMobileDetect().isMobile();
+    console.log(mobile);
+    useEffect(() => {
+        const updateMousePosition = (ev: MouseEvent) => {
+            if (!heroRef.current) return;
+            const { clientX, clientY } = ev;
+            const pageScoll = window.pageYOffset;
 
-                heroRef.current.style.setProperty("--x", `${clientX}px`);
-                heroRef.current.style.setProperty("--y", `${clientY + pageScoll}px`);
-            };
+            heroRef.current.style.setProperty("--x", `${clientX}px`);
+            heroRef.current.style.setProperty("--y", `${clientY + pageScoll}px`);
+        };
+        if (!mobile) {
+            window.addEventListener("mousemove", updateMousePosition);
+        }
+        return () => {
             if (!mobile) {
-                window.addEventListener("mousemove", updateMousePosition);
+                window.removeEventListener("mousemove", updateMousePosition);
             }
-            return () => {
-                if (!mobile) {
-                    window.removeEventListener("mousemove", updateMousePosition);
-                }
-            };
-        }, []);
+        };
+    }, []);
     return (
         // <main className="flex min-h-screen flex-col bg-gradient-radial">
         //     <Navbar />
