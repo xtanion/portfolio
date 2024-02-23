@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Chips from "./Chips";
 import { animate, motion } from "framer-motion";
 import ProfileGltf from "./ProfileGltf";
+import useMobileDetect from '../CheckDevice';
 
 const imageStyle = {
     borderRadius: '4px',
@@ -28,6 +29,12 @@ const fadeUpAnimation = {
 const tech = ["Python", "Java", "JavaScript", "TypeScript", "React", "Node.js", "Redis", "Docker", "Open-gl", "Web-gl", "glsl"];
 
 const AboutMe = () => {
+    const mobile = useMobileDetect().isMobile();
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+    if (!mounted) return <></>;
     return (
         <section className="max-w-[850px] mx-auto text-sm md:text-base xl:text-md" id="about">
             <div className="md:grid md:grid-cols-2 items-center gap-8 py-8 xl:gap-16 sm:py-16 ">
@@ -50,8 +57,12 @@ const AboutMe = () => {
                         <Chips chips={tech} />
                     </motion.div>
                 </div>
-                <div className="gltf w-full h-full min-h-96">
-                    <ProfileGltf />
+                <div className="gltf w-full h-full">
+                    {!mobile ? <ProfileGltf /> :
+                        <div>
+                            <p className="font-mono text-xs text-teal-800 mt-5 text-center">Open on a pc to view glTF renderer:/</p>
+                        </div>}
+                    {/* <ProfileGltf /> */}
                 </div>
             </div>
         </section>

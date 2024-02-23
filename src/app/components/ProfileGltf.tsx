@@ -9,7 +9,7 @@ import useMobileDetect from '../CheckDevice';
 export default function ProfileGltf() {
     const mobile = useMobileDetect().isMobile();
     return (
-        <Canvas camera={{ position: [25, 0, 1] }} shadows>
+        <Canvas className='w-full h-full max-w-full' camera={{ position: [25, 0, 1] }} shadows>
             <ambientLight color={"0x222222"} />
             <directionalLight
                 position={[1.0, 1.0, 1.4]}
