@@ -12,7 +12,7 @@ const Chips: React.FC<Chip> = ({ chips }) => {
                 <li
                     key={index} className="mr-1.5 mt-2">
                     <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-mono leading-5 text-teal-300 backdrop-blur-md">
-                        <span>{value.toString()}</span>
+                        {value.toString()}
                     </div>
                 </li>
             ))}

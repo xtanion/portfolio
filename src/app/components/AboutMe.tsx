@@ -38,9 +38,7 @@ const AboutMe = () => {
     return (
         <section className="max-w-[850px] mx-auto text-sm md:text-base xl:text-md" id="about">
             <div className="md:grid md:grid-cols-2 items-center gap-8 py-8 xl:gap-16 sm:py-16 ">
-                <div
-                    className="mt-4 md:mt-0 flex flex-col h-full">
-
+                <div className="mt-4 md:mt-0 flex flex-col h-full">
                     <div className="flex py-5 items-center">
                         <span className="text-xl font-mono text-teal-400">01. </span>
                         <span className="flex-shrink mx-4 text-xl font-black text-slate-300 min-w-max">About me</span>
@@ -53,9 +51,8 @@ const AboutMe = () => {
                             <br></br>
                             Here are a few technologies I&apos;ve been working with recently:
                         </p>
-
-                        <Chips chips={tech} />
                     </motion.div>
+                    <Chips chips={tech} />
                 </div>
                 <div className="gltf w-full h-full">
                     {!mobile ? <ProfileGltf /> :
