@@ -52,14 +52,15 @@ const AboutMe = () => {
                             Here are a few technologies I&apos;ve been working with recently:
                         </p>
                     </motion.div>
-                    <Chips chips={tech} />
+                    {Chips({ chips: tech, mobile: mobile})}
                 </div>
                 <div className="gltf w-full h-full">
                     {!mobile ? <ProfileGltf /> :
                         <div>
-                            <p className="font-mono text-xs text-teal-800 mt-5 text-center">Open on a pc to view glTF renderer:/</p>
-                        </div>}
-                    {/* <ProfileGltf /> */}
+                            <ProfileGltf />
+                            <p className="font-mono text-xs text-teal-800 mt-5 text-center">Open on a pc to view full glTF renderer:/</p>
+                        </div>
+                    }
                 </div>
             </div>
         </section>

@@ -40,7 +40,7 @@ const Contacts = () => {
                     <a className="font-mono border text-teal-400 border-teal-400 py-3 px-5 mt-12 hover:bg-teal-400 hover:text-white transition-colors duration-200">
                         Say Hello
                     </a>
-                    <div className=" icons grid grid-flow-col mx-8 my-24">
+                    <div className=" icons grid grid-flow-col mx-8 py-24">
                         <a className="github">
                             <svg className="group w-full h-8 fill-slate-300 hover:h-9 transition-color duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="Github">
                                 <path fillRule="evenodd"

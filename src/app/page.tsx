@@ -12,7 +12,6 @@ import useMobileDetect from "./CheckDevice";
 export default function Home() {
     const heroRef = useRef<HTMLDivElement>(null);
     const mobile = useMobileDetect().isMobile();
-    console.log(mobile);
     useEffect(() => {
         const updateMousePosition = (ev: MouseEvent) => {
             if (!heroRef.current) return;
