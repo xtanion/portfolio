@@ -2,8 +2,6 @@ import { Stats, OrbitControls, Circle } from '@react-three/drei'
 import { Canvas, useLoader, BufferGeometryNode } from '@react-three/fiber'
 import * as THREE from "three";
 
-// Parameters
-const geometry = new THREE.BufferGeometry();
 const parameters = {
     count: 100000,
     size: 0.7,
@@ -20,7 +18,6 @@ const colors = new Float32Array(parameters.count * 3);
 const colorInside = new THREE.Color(parameters.insideColor);
 const colorOutside = new THREE.Color(parameters.outsideColor);
 
-// Galaxy
 const generateGalaxy = () => {
 
     for (let i = 0; i < parameters.count; i++) {
@@ -56,15 +53,9 @@ const generateGalaxy = () => {
         colors[i3 + 1] = mixedColor.g;
         colors[i3 + 2] = mixedColor.b;
     }
-    // geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    // geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
-
-    // Points
-    // const points = new THREE.Points(geometry, material);
-    // scene.add(points);
 };
-generateGalaxy();
 
+generateGalaxy();
 
 function MyPoints() {
     return (
