@@ -15,11 +15,11 @@ export default function Home() {
     const mobile = useMobileDetect().isMobile();
 
     return (
-        <main className="flex min-h-screen flex-col hero bg-black items-center justify-center text-slate-400 font-sans" ref={heroRef}>
+        <main className="flex min-h-screen flex-col items-center justify-center text-slate-400 font-sans" ref={heroRef}>
             <Navbar />
-
-            <div className="container mx-auto w-full px-12 md:px-20">
-                <Universe />
+            <Universe />
+            <div className="container mx-auto w-full">
+                <HeroSection />
             </div>
 
         </main>

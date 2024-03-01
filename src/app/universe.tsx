@@ -1,24 +1,25 @@
 import { Stats, OrbitControls, Circle } from '@react-three/drei'
-import { Canvas, useLoader, BufferGeometryNode } from '@react-three/fiber'
+import { Canvas, useLoader, BufferGeometryNode, useThree, useFrame } from '@react-three/fiber'
+import { useRef } from 'react';
 import * as THREE from "three";
 
 const parameters = {
-    count: 100000,
-    size: 0.7,
-    radius: 5,
+    count: 50000,
+    size: 1.5,
+    radius: 6,
     branches: 3,
     spin: 1,
-    randomness: 0.7,
+    randomness: 0.3,
     randomnessPower: 3,
-    insideColor: "#ed124f",
-    outsideColor: "#025fdd",
+    insideColor: "#CCCCFF",
+    outsideColor: "#1F51FF",
 };
 const positions = new Float32Array(parameters.count * 3);
 const colors = new Float32Array(parameters.count * 3);
 const colorInside = new THREE.Color(parameters.insideColor);
 const colorOutside = new THREE.Color(parameters.outsideColor);
 
-const generateGalaxy = () => {
+const generateUniverse = () => {
 
     for (let i = 0; i < parameters.count; i++) {
         const i3 = i * 3;
@@ -55,11 +56,17 @@ const generateGalaxy = () => {
     }
 };
 
-generateGalaxy();
+generateUniverse();
 
-function MyPoints() {
+const UniversePoints = () => {
+    const univRef = useRef()
+    useFrame(() => {
+        if (univRef.current) {
+            univRef.current.rotation.y += 0.001
+        }
+    })
     return (
-        <points>
+        <points ref={univRef}>
             <bufferGeometry attach="geometry">
                 <bufferAttribute
                     attach="attributes-position"
@@ -82,23 +89,35 @@ function MyPoints() {
 
 }
 
-export default function Universe() {
-
+const Camera = () => {
+    const { camera } = useThree()
+    camera.lookAt(-3, 1, 0)
     return (
-        <div className='w fixed top-0 left-0 w-svw h-svh'>
+        <></>
+    )
+}
+
+export default function Universe() {
+    // cam pos: [-2, 7, 10], [-10, 2, 3]
+    const lookat = new THREE.Vector3()
+    lookat.x = 0
+    lookat.y = 0
+    lookat.z = 0
+    return (
+        <div className='w absolute top-0 left-0 w-svw h-svh -z-10'>
             <Canvas className='galaxy max-w-full'
                 camera={{
                     fov: 75,
-                    aspect: 2,
+                    aspect: 1.65,
                     near: 0.1,
-                    far: 1000,
-                    position: [-2, 2, 3],
-                    rotation: [0, 0, 0]
+                    far: 100,
+                    position: [-5, 2, 3],
+                    rotation: [0, 0, 0],
                 }}>
+                <Camera />
+                <UniversePoints />
 
-                <MyPoints />
-
-                <OrbitControls autoRotate />
+                {/* <OrbitControls autoRotate /> */}
             </Canvas>
 
         </div>

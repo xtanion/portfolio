@@ -30,7 +30,7 @@ const Navbar = () => {
 
     return (
         <nav className="left-0 -top-1 right-0 -mt-1 fixed z-10 bg-transparent">
-            <div className="flex flex-wrap items-center justify-between mx-auto p-[40px]">
+            <div className="flex flex-wrap items-center justify-between mx-auto p-[60px]">
                 <div className="logo font-mono font-bold text-teal-300">
                     <a href="https://github.com/xtanion" target="_blank" rel="noopener noreferrer">x.</a>
                 </div>
