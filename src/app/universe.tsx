@@ -11,8 +11,8 @@ const parameters = {
     spin: 1,
     randomness: 0.3,
     randomnessPower: 3,
-    insideColor: "#CCCCFF",
-    outsideColor: "#1F51FF",
+    insideColor: "#38bdf8",
+    outsideColor: "blue",
 };
 const positions = new Float32Array(parameters.count * 3);
 const colors = new Float32Array(parameters.count * 3);
@@ -91,7 +91,8 @@ const UniversePoints = () => {
 
 const Camera = () => {
     const { camera } = useThree()
-    camera.lookAt(-3, 1, 0)
+    camera.rotation.set(0, 0, THREE.MathUtils.degToRad(45))
+    camera.lookAt(-4, 0, 0)
     return (
         <></>
     )
@@ -111,8 +112,7 @@ export default function Universe() {
                     aspect: 1.65,
                     near: 0.1,
                     far: 100,
-                    position: [-5, 2, 3],
-                    rotation: [0, 0, 0],
+                    position: [-4, 4, 0]
                 }}>
                 <Camera />
                 <UniversePoints />
