@@ -51,21 +51,21 @@ const Navbar = () => {
                 }
             </div>
             <div className="menu hidden md:block w-full col-start-2" id="navbar">
-                <ul className="grid grid-flow-col auto-cols-fr place-items-center min-h-[1.5rem] w-full font-semibold">
+                <ul className="grid grid-flow-col auto-cols-fr place-items-center min-h-[1.5rem] w-full font-medium">
                     <li className="text-slate-200 hover:text-teal-400">
-                        <Link href={"#about"} className="py-2 pr-4 font-sans">About</Link>
+                        <Link href={"#about"} className="py-2 pr-4 font-mono">whoami</Link>
                     </li>
                     <li className="text-slate-200 hover:text-teal-400">
-                        <Link href={"#experience"} className="py-2 pr-4 font-sans">Experience</Link>
+                        <Link href={"#experience"} className="py-2 pr-4 font-mono">exp.</Link>
                     </li>
                     <li className="text-slate-200 hover:text-teal-400">
-                        <Link href={"#project"} className="py-2 pr-4 font-sans">Projects</Link>
+                        <Link href={"#project"} className="py-2 pr-4 font-mono">projects</Link>
                     </li>
                     <li className="text-slate-200 hover:text-teal-400">
-                        <Link href={"#project"} className="py-2 pr-4 font-sans">Blogs</Link>
+                        <Link href={"#project"} className="py-2 pr-4 font-mono">blogs</Link>
                     </li>
                     <li className="text-slate-200 hover:text-teal-400">
-                        <Link href={"#contact"} className="py-2 pr-4 font-sans">Contact</Link>
+                        <Link href={"#contact"} className="py-2 pr-4 font-mono">redirects</Link>
                     </li>
 
                 </ul>
@@ -76,7 +76,7 @@ const Navbar = () => {
                 </div>
                 <div className="about-line relative flex h-full w-full items-center justify-center">
                     <div className="absolute h-full w-full grid grid-cols-[1fr_max-content_1fr] place-content-center justify-items-center z-10">
-                        
+
                         <div className="col-start-2 h-1 w-1 mx-2 lg:mx-3 bg-white/50 rounded-full"></div>
                         <div className=" col-start-3 h-[2px] self-center w-full bg-white/30"></div>
                     </div>
@@ -110,9 +110,9 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            <div className=" col-start-3 row-start-2 mr-[7.5rem] border-[1px] flex p-3 font-medium border-teal-300">
-                <CloudArrowDownIcon className="w-4 stroke-teal-300" />
-                <Link href={"#contact"} className="font-mono px-2 text-teal-300">resume</Link>
+            <div className="group col-start-3 row-start-2 mr-[7.5rem] border-[1px] flex p-3 font-medium border-teal-300 bg-black/70 hover:bg-teal-300/80 rounded-sm">
+                <CloudArrowDownIcon className="w-4 stroke-teal-300 group-hover:stroke-white" />
+                <Link href={"#contact"} className="font-mono px-2 text-teal-300 group-hover:text-white text-sm">resume</Link>
             </div>
             {navOpen ? <MenuOverlay links={navLinks} /> : null}
         </nav>
