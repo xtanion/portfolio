@@ -30,12 +30,12 @@ const Navbar = () => {
 
     return (
         <nav className=" grid auto-cols-[max-content_1fr_max-content] grid-flow-col auto-rows-max place-items-center h-auto w-full left-0 -top-1 right-0 -mt-1 fixed z-10 pt-[4.5rem] bg-transparent z-20">
-            <div className="logo font-mono font-black text-2xl text-teal-300 row-span-1 row-start-2 ml-[7.5rem] mr-[7rem]">
+            <div className="logo font-mono font-black text-2xl text-teal-300 row-span-1 row-start-2 md:ml-[7.5rem] md:mr-[7rem] p-4">
                 <a href="https://github.com/xtanion" target="_blank" rel="noopener noreferrer">
                     Xn
                 </a>
             </div>
-            <div className="mobile-menu md:hidden block">
+            <div className="mobile-menu md:hidden block row-span-1 row-start-2 p-4">
                 {
                     !navOpen ? (
                         <button
@@ -110,7 +110,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            <div className="group col-start-3 row-start-2 mr-[7.5rem] border-[1px] flex p-3 font-medium border-teal-300 bg-black/70 hover:bg-teal-300/80 rounded-sm">
+            <div className="group hidden md:flex col-start-3 row-start-2 mr-[7.5rem] border-[1px] p-3 font-medium border-teal-300 bg-black/70 hover:bg-teal-300/80 rounded-sm">
                 <CloudArrowDownIcon className="w-4 stroke-teal-300 group-hover:stroke-white" />
                 <Link href={"#contact"} className="font-mono px-2 text-teal-300 group-hover:text-white text-sm">resume</Link>
             </div>

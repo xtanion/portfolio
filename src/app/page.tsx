@@ -16,13 +16,14 @@ export default function Home() {
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-center text-slate-200 font-sans leading-6 tracking-wider overflow-hidden overflow-x-hidden overflow-y-hidden" ref={heroRef}>
-            <Navbar />
             <Universe />
-            <div className="flex flex-col flex-1 w-full h-full">
-                <HeroSection />
+            <Navbar />
+            <div className="flex flex-col w-full h-full">
+                {/* <HeroSection /> */}
+                <Experience />
             </div>
 
-            <footer className="w-full grid auto-cols-fr grid-flow-col mb-14 px-[7.5rem]">
+            <footer className="fixed bottom-0 w-full grid auto-cols-fr grid-flow-col mb-14 px-[7.5rem] z-10">
                 <div className="flex items-center">
                     <a className="order-2 mr-[3.5rem]" rel="noreferrer" target="_blank" href="https://github.com/xtanion">
                         <img src="github.svg" alt="GitHub" className="h-[1.5rem] w-auto" />
