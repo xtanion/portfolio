@@ -29,7 +29,7 @@ const Navbar = () => {
     const [navOpen, setNavOpen] = useState(false);
 
     return (
-        <nav className=" grid auto-cols-[max-content_1fr_max-content] grid-flow-col auto-rows-max place-items-center h-auto w-full left-0 -top-1 right-0 -mt-1 fixed z-10 pt-[4.5rem] bg-transparent z-20">
+        <nav className=" grid auto-cols-[max-content_1fr_max-content] grid-flow-col auto-rows-max place-items-center h-auto w-full left-0 -top-1 right-0 -mt-1 fixed pt-[4.5rem] bg-transparent z-20">
             <div className="logo font-mono font-black text-2xl text-teal-300 row-span-1 row-start-2 md:ml-[7.5rem] md:mr-[7rem] p-4">
                 <a href="https://github.com/xtanion" target="_blank" rel="noopener noreferrer">
                     Xn

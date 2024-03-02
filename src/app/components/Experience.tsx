@@ -69,6 +69,7 @@ const TAB_DATA: Array<tabData> = [
                 <ul className="list-outside py-2 xl:max-w-xl">
                     <CustomItem data="A library for XR interaction with classical desktop compositors on Linux" />
                     <CustomItem data="Added support for 3D model rendering from glTF format allowing the users to load custom environment scenes along with their virtual workspace in VR." />
+                    <CustomItem data="3" />
                 </ul>
 
             </div>
@@ -85,6 +86,8 @@ const TAB_DATA: Array<tabData> = [
                 <p className="text-slate-500 font-mono font-thin text-sm my-1">March 2022 - Present</p>
                 <ul className="list-outside list-image-right py-2 xl:max-w-xl">
                     <CustomItem data="A library for XR interaction with classical desktop compositors on Linux" />
+                    <CustomItem data="2" />
+                    <CustomItem data="3" />
                 </ul>
 
             </div>
@@ -102,8 +105,9 @@ const Experience = () => {
         })
     }
     return (
-        <section className="mr-0 ml-0 grid justify-between flex-1 content-center z-10" id="experience">
-            <div className="md:grid md:grid-cols-3 flex flex-col items-left col-start-4 row-start-2 backdrop-blur-sm md:border-[1px] border-white/30 min-h-96 p-6 md:p-8">
+        <section className="mr-0 ml-0 md:grid md:grid-cols-[1fr_max-content_1fr] gap-0 justify-between flex-1 content-center z-10" id="experience">
+            <div className="left-divider h-[1px] w-full  bg-white/30 col-start-1 mt-auto mb-auto hidden md:block lg:block"></div>
+            <div className="md:grid md:grid-cols-3 flex flex-col items-left backdrop-blur-sm md:border-[1px] border-white/30 min-h-[400px] p-6 md:p-8">
                 <div className="flex py-5 items-center row-start-1">
                     <span className="text-xl font-mono text-teal-400">02. </span>
                     <span className="flex-shrink mx-4 text-xl font-black text-slate-200 text-wrap min-w-max">Experiences gained</span>
@@ -124,10 +128,7 @@ const Experience = () => {
                 </div>
 
             </div>
-            <div className="left-divider h-[1px] w-[7.5rem] col-start-2 row-start-2 mt-auto mb-auto hidden lg:block"></div>
-            <div className="btm-divider h-full w-[1px] bg-white col-start-4 row-start-3 ml-auto mr-auto lg:block "></div>
-            <div className="mid-divider h-[1px] w-auto col-start-3 row-start-2 mt-auto mb-auto hidden xl:block"></div>
-            <div className="rgt-divider h-[1px] w-[7.5rem] bg-white/30 col-start-5 row-start-2 mt-auto mb-auto hidden md:block xl:block"></div>
+            <div className="rgt-divider h-[1px] w-full bg-white/30 col-start-3 mt-auto mb-auto hidden md:block xl:block"></div>
 
         </section>
     );
