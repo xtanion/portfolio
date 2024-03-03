@@ -105,7 +105,7 @@ const Experience = () => {
         })
     }
     return (
-        <section className="mr-0 ml-0 md:grid md:grid-cols-[1fr_max-content_1fr] gap-0 justify-between flex-1 content-center z-10" id="experience">
+        <section className="w-svh min-h-svh mr-0 ml-0 md:grid md:grid-cols-[1fr_max-content_1fr] gap-0 justify-between flex-1 content-center z-10" id="experience">
             <div className="left-divider h-[1px] w-full  bg-white/30 col-start-1 mt-auto mb-auto hidden md:block lg:block"></div>
             <div className="md:grid md:grid-cols-3 flex flex-col items-left backdrop-blur-sm md:border-[1px] border-white/30 min-h-[400px] p-6 md:p-8">
                 <div className="flex py-5 items-center row-start-1">

@@ -5,18 +5,18 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "xtanion",
-  description: "Portfolio website for Shivam Anand",
+    title: "xtanion",
+    description: "Portfolio website for Shivam Anand",
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-          <body className={`scrollbar-thin scrollbar-track-slate-900 scrollbar-thumb-slate-400/30 ${inter.className}`}>{children}</body>
-    </html>
-  );
+    return (
+        <html lang="en">
+            <body className={`scrollbar-thin scrollbar-track-transparent scrollbar-thumb-slate-400/40  ${inter.className}`}>{children}</body>
+        </html>
+    );
 }

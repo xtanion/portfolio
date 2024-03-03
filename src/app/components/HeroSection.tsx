@@ -4,8 +4,8 @@ import ProfileGltf from "./ProfileGltf";
 
 const HeroSection = () => {
     return (
-        <section className="mr-0 ml-0 flex flex-col md:grid md:grid-cols-[max-content_max-content_1fr_max-content_max-content] md:grid-rows-[1fr_max-content_1fr] justify-between flex-1 content-center z-10">
-            <div className="md:border-[0.5px] bg-black/60 md:bg-transparent md:backdrop-blur-sm md:p-12 p-8 border-[#ffffff40] md:col-start-2 row-start-2">
+        <section className="mr-0 ml-0 w-svw min-h-svh flex flex-col items-center  md:grid md:grid-cols-[max-content_max-content_1fr_max-content_max-content] md:grid-rows-[1fr_max-content_1fr] justify-between flex-1 content-center z-10">
+            <div className="md:border-[0.5px] bg-black/60 md:bg-transparent md:backdrop-blur-sm md:p-12 p-8 border-[#ffffff40] md:col-start-2 md:row-start-2 md:my-0 my-auto">
                 <p className="text-teal-300 font-mono max-w-2xl">hi, my name is</p>
                 <h1 className="text-white mb-4 text-4xl sm:text-2xl lg:text-6xl font-bold max-w-2xl">Shivam Anand.</h1>
                 <h1 className="text-slate-300 mb-4 text-4xl sm:text-2xl lg:text-6xl font-bold max-w-2xl">BackendDev / <br></br>Graphics programmer</h1>

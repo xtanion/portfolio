@@ -1,7 +1,10 @@
-import { Stats, OrbitControls, Circle } from '@react-three/drei'
-import { Canvas, useLoader, BufferGeometryNode, useThree, useFrame } from '@react-three/fiber'
-import { useRef } from 'react';
+import { OrbitControls, Scroll, ScrollControls, useScroll } from '@react-three/drei'
+import { Canvas, useLoader, useThree, useFrame } from '@react-three/fiber'
+import { useRef, useState, useEffect, Suspense } from 'react';
 import * as THREE from "three";
+import { vec3 } from 'three/examples/jsm/nodes/Nodes.js';
+import Experience from './Experience';
+import HeroSection from './HeroSection';
 
 const parameters = {
     count: 50000,
@@ -18,6 +21,8 @@ const positions = new Float32Array(parameters.count * 3);
 const colors = new Float32Array(parameters.count * 3);
 const colorInside = new THREE.Color(parameters.insideColor);
 const colorOutside = new THREE.Color(parameters.outsideColor);
+
+
 
 const generateUniverse = () => {
 
@@ -58,15 +63,28 @@ const generateUniverse = () => {
 
 generateUniverse();
 
-const UniversePoints = () => {
+const UniversePoints = ({ ...props }) => {
+
+    const scroll = useScroll()
+    const { camera } = useThree()
     const univRef = useRef()
-    useFrame(() => {
+    const vec = new THREE.Vector3();
+
+    useFrame((state, delta) => {
+        if (scroll) {
+            const offset = 1 - scroll.offset
+            state.camera.position.set(Math.sin(offset) * -10, Math.atan(offset * Math.PI * 2) * 5, Math.cos((offset * Math.PI) / 3) * -10)
+            state.camera.lookAt(Math.cos((offset * Math.PI) / 3) * -10, 0, 0)
+        } else {
+            console.log("No scroll")
+        }
+
         if (univRef.current) {
             univRef.current.rotation.y += 0.001
         }
     })
     return (
-        <points ref={univRef}>
+        <points ref={univRef} {...props}>
             <bufferGeometry attach="geometry">
                 <bufferAttribute
                     attach="attributes-position"
@@ -89,38 +107,8 @@ const UniversePoints = () => {
 
 }
 
-const Camera = () => {
-    const { camera } = useThree()
-    camera.rotation.set(0, 0, THREE.MathUtils.degToRad(45))
-    camera.lookAt(-4, 0, 0)
-    return (
-        <></>
-    )
-}
+
 
 export default function Universe() {
-    // cam pos: [-2, 7, 10], [-10, 2, 3]
-    const lookat = new THREE.Vector3()
-    lookat.x = 0
-    lookat.y = 0
-    lookat.z = 0
-    return (
-        <div className='w absolute top-0 left-0 w-svw h-svh -z-10'>
-            <Canvas className='galaxy max-w-full'
-                camera={{
-                    fov: 75,
-                    aspect: 1.65,
-                    near: 0.1,
-                    far: 100,
-                    position: [-4, 4, 0]
-                }}>
-                <Camera />
-                <UniversePoints />
-
-                {/* <OrbitControls autoRotate /> */}
-            </Canvas>
-
-        </div>
-
-    )
+    return (<UniversePoints />)
 }
