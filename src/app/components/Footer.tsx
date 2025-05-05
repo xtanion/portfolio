@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
     return (
-    <footer className="fixed bottom-0 w-full grid auto-cols-fr grid-flow-col mb-14 px-[7.5rem] z-10">
+    <footer className="fixed bottom-0 w-full grid auto-cols-fr grid-flow-col py-5 px-[7.5rem] z-20 bg-black/80">
         <div className="flex items-center">
             <a className="order-2 mr-[3.5rem]" rel="noreferrer" target="_blank" href="https://github.com/xtanion">
                 <img src="github.svg" alt="GitHub" className="h-[1.5rem] w-auto" />

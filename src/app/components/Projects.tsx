@@ -62,20 +62,23 @@ const projects:Array<ProjectProps> = [
 
 const Projects = () => {
     return (
-        <section className="max-w-[900px] mx-auto my-10 text-sm md:text-base xl:text-md" id="projects">
+        <section className="w-full min-h-svh flex flex-col md:grid md:grid-cols-[1fr_auto_1fr] items-stretch gap-0 z-10" id="projects">
+          <div className="hidden md:block h-[1px] w-full bg-white/30 self-stretch mt-auto mb-auto" />
+          <div className="max-w-[900px] px-8 border-white/30 md:border overflow-hidden bg-black/60 backdrop-blur-md">
             <motion.div
-                variants={fadeUpAnimation} initial="initial" whileInView="animate" viewport={{ once: true }}
-                className="flex py-5 items-center">
-                    <span className="text-xl font-mono text-teal-400">03. </span>
-                    <span className="flex-shrink mx-4 text-xl font-black text-gray-200 min-w-max">Some Things I’ve Built</span>
-                    <hr className="h-px w-full my-8 bg-slate-600/60 border-0 max-w-40"></hr>
-                </motion.div>
-                {
-                    projects.map((projPromp, index) => (
-                        <ProjectComponent key={index} prop={projPromp} />
-                    ))
-                }
-            
+                  variants={fadeUpAnimation} initial="initial" whileInView="animate" viewport={{ once: true }}
+                  className="flex py-5 items-center">
+                      <span className="text-xl font-mono text-teal-400">03. </span>
+                      <span className="flex-shrink mx-4 text-xl font-extrabold text-gray-200 min-w-max ">Some Things I’ve Built</span>
+                      <hr className="h-px w-full my-8 bg-slate-600/60 border-0 max-w-40"></hr>
+                  </motion.div>
+                  {
+                      projects.map((projPromp, index) => (
+                          <ProjectComponent key={index} prop={projPromp} />
+                      ))
+                  }
+          </div>  
+          <div className="hidden md:block h-[1px] w-full bg-white/30 self-stretch mt-auto mb-auto" />
         </section>
     );
 };

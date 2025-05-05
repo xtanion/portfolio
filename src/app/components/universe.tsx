@@ -2,12 +2,9 @@ import { OrbitControls, Scroll, ScrollControls, useScroll } from '@react-three/d
 import { Canvas, useLoader, useThree, useFrame } from '@react-three/fiber'
 import { useRef, useState, useEffect, Suspense } from 'react';
 import * as THREE from "three";
-import { vec3 } from 'three/examples/jsm/nodes/Nodes.js';
-import Experience from './Experience';
-import HeroSection from './HeroSection';
 
 const parameters = {
-    count: 50000,
+    count: 30000,
     size: 1.5,
     radius: 6,
     branches: 3,
@@ -74,7 +71,7 @@ const UniversePoints = ({ ...props }) => {
         if (scroll) {
             const offset = 1 - scroll.offset
             state.camera.position.set(Math.sin(offset) * -10, Math.atan(offset * Math.PI * 2) * 5, Math.cos((offset * Math.PI) / 3) * -10)
-            state.camera.lookAt(Math.cos((offset * Math.PI) / 3) * -10, 0, 0)
+            state.camera.lookAt(Math.cos((offset * Math.PI) / 3) * -1, 0, 0)
         } else {
             console.log("No scroll")
         }
