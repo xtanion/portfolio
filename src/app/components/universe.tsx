@@ -64,7 +64,7 @@ const UniversePoints = ({ ...props }) => {
 
     const scroll = useScroll()
     const { camera } = useThree()
-    const univRef = useRef()
+    const univRef = useRef<THREE.Points>(null)
     const vec = new THREE.Vector3();
 
     useFrame((state, delta) => {
