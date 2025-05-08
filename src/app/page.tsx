@@ -5,13 +5,11 @@ import { Canvas, useLoader, useThree, useFrame } from "@react-three/fiber";
 import useMobileDetect from "./CheckDevice";
 import Navbar from "./components/Navbar";
 import Universe from "./components/universe";
-import Footer from "./components/Footer";
 import { Html, Scroll, ScrollControls } from "@react-three/drei";
 import Experience from "./components/Experience";
 import HeroSection from "./components/HeroSection";
 import Projects from "./components/Projects";
 import Contacts from "./components/Contacts";
-import ScrollTracker from "./components/ScrollTracker";
 import SectionObserver from "./components/SectionObserver";
 
 const Camera = () => {
@@ -24,9 +22,7 @@ const Camera = () => {
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
   const mobile = useMobileDetect().isMobile();
-  const [scrollOffset, setScrollOffset] = useState(0);
   const [activeSection, setActiveSection] = useState("hero");
-
 
   return (
     <main
@@ -46,21 +42,20 @@ export default function Home() {
       >
         <ScrollControls pages={4} damping={0.05}>
           <Camera />
-          <ScrollTracker onScroll={setScrollOffset} />
           <Universe />
           <Scroll html>
             <SectionObserver id="whoami" onVisible={setActiveSection}>
-                    <HeroSection />
-                  </SectionObserver>
-                  <SectionObserver id="experience" onVisible={setActiveSection}>
-                    <Experience />
-                  </SectionObserver>
-                  <SectionObserver id="projects" onVisible={setActiveSection}>
-                    <Projects />
-                  </SectionObserver>
-                  <SectionObserver id="contacts" onVisible={setActiveSection}>
-                    <Contacts />
-                  </SectionObserver>
+              <HeroSection />
+            </SectionObserver>
+            <SectionObserver id="experience" onVisible={setActiveSection}>
+              <Experience />
+            </SectionObserver>
+            <SectionObserver id="projects" onVisible={setActiveSection}>
+              <Projects />
+            </SectionObserver>
+            <SectionObserver id="contacts" onVisible={setActiveSection}>
+              <Contacts />
+            </SectionObserver>
           </Scroll>
         </ScrollControls>
       </Canvas>

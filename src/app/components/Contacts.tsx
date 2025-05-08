@@ -22,7 +22,7 @@ const fadeUpAnimation = {
 const Contacts = () => {
   return (
     <section
-      id="contact"
+      id="contacts"
       className="mr-0 ml-0 w-svw min-h-svh flex flex-col items-center  md:grid md:grid-cols-[max-content_max-content_1fr_max-content_max-content] md:grid-rows-[1fr_max-content_1fr] justify-between flex-1 content-center z-10"
     >
       <div className="max-w-[800px] md:border-[0.5px] bg-black/60 md:bg-transparent md:backdrop-blur-md md:p-12 p-8 border-[#ffffff40] md:col-end-5 md:row-start-2 md:my-0 my-auto mx-auto">
