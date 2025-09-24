@@ -212,7 +212,100 @@ export default function ClientHome({ posts }: ClientHomeProps) {
           </div>
         </section>
 
-        <section id="thoughts" ref={(el) => (sectionsRef.current[2] = el)} className="min-h-screen py-32 opacity-0">
+        <section id="projects" ref={(el) => (sectionsRef.current[2] = el)} className="min-h-screen py-32 opacity-0">
+          <div className="space-y-16">
+            <h2 className="text-4xl font-light">Selected Projects</h2>
+
+            <div className="grid lg:grid-cols-2 gap-8">
+              {[
+                {
+                  title: "RAG-Based Content System",
+                  description: "AI-driven content platform with retrieval-augmented generation achieving 98% precision in document retrieval and automated content optimization.",
+                  tech: ["Python", "Vector DB", "LangChain", "FastAPI"],
+                  year: "2024",
+                  status: "Production",
+                  slug: "rag-content-system"
+                },
+                {
+                  title: "Distributed Task Processing",
+                  description: "Scalable Celery-based task queue system handling 10k+ concurrent operations with Redis clustering and PostgreSQL optimization.",
+                  tech: ["Python", "Celery", "Redis", "PostgreSQL"],
+                  year: "2024",
+                  status: "Production",
+                  slug: "distributed-task-processing"
+                },
+                {
+                  title: "Healthcare API Gateway",
+                  description: "FHIR-compliant API with JWT authentication, RSA encryption, and real-time validation for secure healthcare data exchange.",
+                  tech: ["JWT", "RSA", "FHIR", "Google Cloud"],
+                  year: "2023",
+                  status: "Production",
+                  slug: "healthcare-api-gateway"
+                },
+                {
+                  title: "3D Renderer Enhancement",
+                  description: "Enhanced FURY renderer with glTF 2.0 support, keyframe animations, and advanced spline interpolation for scientific visualization.",
+                  tech: ["Python", "OpenGL", "glTF", "Computer Graphics"],
+                  year: "2022",
+                  status: "Open Source",
+                  slug: "3d-renderer-enhancement"
+                }
+              ].map((project, index) => (
+                <Link
+                  key={index}
+                  href={`/projects/${project.slug}`}
+                  className="block group h-full"
+                  aria-label={`View ${project.title} details`}
+                >
+                  <div className="group h-full flex flex-col p-8 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-500 hover:shadow-lg cursor-pointer">
+                    <div className="space-y-4 flex-1">
+                      <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">
+                        <span>{project.year}</span>
+                        <span className="px-2 py-1 bg-muted/30 rounded-md">{project.status}</span>
+                      </div>
+
+                      <h3 className="text-xl font-medium group-hover:text-muted-foreground transition-colors duration-300">
+                        {project.title}
+                      </h3>
+
+                      <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+                      
+                      <div className="flex flex-wrap gap-2">
+                        {project.tech.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2 py-1 text-xs text-muted-foreground bg-muted/30 rounded-md"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="mt-auto flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                      <span>View details</span>
+                      <svg
+                        className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="thoughts" ref={(el) => (sectionsRef.current[3] = el)} className="min-h-screen py-32 opacity-0">
           <div className="space-y-16">
             <h2 className="text-4xl font-light">Recent Thoughts</h2>
 
@@ -275,7 +368,7 @@ export default function ClientHome({ posts }: ClientHomeProps) {
           </div>
         </section>
 
-        <section id="connect" ref={(el) => (sectionsRef.current[3] = el)} className="py-32 opacity-0">
+        <section id="connect" ref={(el) => (sectionsRef.current[4] = el)} className="py-32 opacity-0">
           <div className="grid lg:grid-cols-2 gap-16">
             <div className="space-y-8">
               <h2 className="text-4xl font-light">Let's Connect</h2>
