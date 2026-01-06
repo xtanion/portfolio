@@ -2,6 +2,8 @@
 
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
+import { Github, Twitter, Linkedin } from "lucide-react"
+import { ThemeToggle } from "./theme-toggle"
 import type { Post } from "../lib/posts"
 import type { Project } from "../lib/projects"
 
@@ -11,15 +13,10 @@ interface ClientHomeProps {
 }
 
 export default function ClientHome({ posts, projects }: ClientHomeProps) {
-  const [isDark, setIsDark] = useState(true)
   const [activeSection, setActiveSection] = useState("")
   const [isScrolling, setIsScrolling] = useState(false)
   const sectionsRef = useRef<(HTMLElement | null)[]>([])
   const scrollTimeoutRef = useRef<NodeJS.Timeout>()
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", isDark)
-  }, [isDark])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -64,10 +61,6 @@ export default function ClientHome({ posts, projects }: ClientHomeProps) {
     }
   }, [])
 
-
-  const toggleTheme = () => {
-    setIsDark(!isDark)
-  }
 
   return (
     <div className="min-h-screen bg-background text-foreground relative">
@@ -348,23 +341,29 @@ export default function ClientHome({ posts, projects }: ClientHomeProps) {
 
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { name: "GitHub", handle: "@xtanion", url: "https://github.com/xtanion" },
-                  { name: "Twitter", handle: "@xtanion", url: "https://x.com/xtanion" },
-                  { name: "LinkedIn", handle: "xtanion", url: "https://linkedin.com/in/xtanion" },
-                ].map((social) => (
-                  <Link
-                    key={social.name}
-                    href={social.url}
-                    className="group p-4 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-300 hover:shadow-sm"
-                  >
-                    <div className="space-y-2">
-                      <div className="text-foreground group-hover:text-muted-foreground transition-colors duration-300">
-                        {social.name}
+                  { name: "GitHub", handle: "@xtanion", url: "https://github.com/xtanion", icon: Github },
+                  { name: "Twitter", handle: "@xtanion", url: "https://x.com/xtanion", icon: Twitter },
+                  { name: "LinkedIn", handle: "xtanion", url: "https://linkedin.com/in/xtanion", icon: Linkedin },
+                ].map((social) => {
+                  const Icon = social.icon
+                  return (
+                    <Link
+                      key={social.name}
+                      href={social.url}
+                      className="group p-4 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-300 hover:shadow-sm"
+                    >
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2">
+                          <Icon className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors duration-300" />
+                          <div className="text-foreground group-hover:text-muted-foreground transition-colors duration-300">
+                            {social.name}
+                          </div>
+                        </div>
+                        <div className="text-sm text-muted-foreground">{social.handle}</div>
                       </div>
-                      <div className="text-sm text-muted-foreground">{social.handle}</div>
-                    </div>
-                  </Link>
-                ))}
+                    </Link>
+                  )
+                })}
               </div>
             </div>
           </div>
@@ -377,33 +376,7 @@ export default function ClientHome({ posts, projects }: ClientHomeProps) {
             </div>
 
             <div className="flex items-center gap-4">
-              <button
-                onClick={toggleTheme}
-                className="group p-3 rounded-full border border-border hover:border-muted-foreground/50 transition-all duration-300"
-                aria-label="Toggle theme"
-              >
-                {isDark ? (
-                  <svg
-                    className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors duration-300"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors duration-300"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                  </svg>
-                )}
-              </button>
+              <ThemeToggle />
             </div>
           </div>
         </footer>

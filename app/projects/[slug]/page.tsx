@@ -3,7 +3,8 @@ import { notFound } from "next/navigation"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import { getProjectBySlug } from "../../../lib/projects"
 import { mdxComponents } from "../../../components/mdx-components"
-import Link from "next/link"
+import { BackButton } from "../../../components/back-button"
+import { ThemeToggle } from "../../../components/theme-toggle"
 
 type PageProps = {
   params: { slug: string }
@@ -24,17 +25,9 @@ export default function ProjectPage({ params }: PageProps) {
 
   return (
     <main className="max-w-4xl mx-auto px-8 lg:px-16 py-24">
-      <nav className="mb-8">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground border border-border rounded-lg px-3 py-2 hover:border-muted-foreground/50 transition-colors"
-          aria-label="Back to Selected Projects"
-        >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          <span>Back</span>
-        </Link>
+      <nav className="mb-8 flex items-center justify-between">
+        <BackButton />
+        <ThemeToggle />
       </nav>
 
       <header className="space-y-4 mb-8">
