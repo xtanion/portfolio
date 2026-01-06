@@ -3,12 +3,14 @@
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 import type { Post } from "../lib/posts"
+import type { Project } from "../lib/projects"
 
 interface ClientHomeProps {
   posts: Post[]
+  projects: Project[]
 }
 
-export default function ClientHome({ posts }: ClientHomeProps) {
+export default function ClientHome({ posts, projects }: ClientHomeProps) {
   const [isDark, setIsDark] = useState(true)
   const [activeSection, setActiveSection] = useState("")
   const [isScrolling, setIsScrolling] = useState(false)
@@ -42,18 +44,18 @@ export default function ClientHome({ posts }: ClientHomeProps) {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolling(true)
-      
+
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current)
       }
-      
+
       scrollTimeoutRef.current = setTimeout(() => {
         setIsScrolling(false)
       }, 1500)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll)
       if (scrollTimeoutRef.current) {
@@ -61,6 +63,7 @@ export default function ClientHome({ posts }: ClientHomeProps) {
       }
     }
   }, [])
+
 
   const toggleTheme = () => {
     setIsDark(!isDark)
@@ -71,16 +74,29 @@ export default function ClientHome({ posts }: ClientHomeProps) {
       <nav className={`fixed left-8 top-1/2 -translate-y-1/2 z-10 hidden lg:block transition-opacity duration-300 ${
         isScrolling ? "opacity-100" : "opacity-0"
       }`}>
-        <div className="flex flex-col gap-4">
-          {["intro", "work", "thoughts", "connect"].map((section) => (
+        <div className="flex flex-col gap-4 border-border/20">
+          {[
+            { id: "intro", label: "Hi !" },
+            { id: "work", label: "Exp." },
+            { id: "projects", label: "Proj" },
+            { id: "thoughts", label: "Blog" },
+            { id: "connect", label: "Dial" }
+          ].map((section) => (
             <button
-              key={section}
-              onClick={() => document.getElementById(section)?.scrollIntoView({ behavior: "smooth" })}
-              className={`w-1 h-8 rounded-full transition-all duration-500 ${
-                activeSection === section ? "bg-foreground" : "bg-muted-foreground/30 hover:bg-muted-foreground/60"
-              }`}
-              aria-label={`Navigate to ${section}`}
-            />
+              key={section.id}
+              onClick={() => document.getElementById(section.id)?.scrollIntoView({ behavior: "smooth" })}
+              className="flex items-center gap-3 group"
+              aria-label={`Navigate to ${section.id}`}
+            >
+              <div className={`w-0.5 h-8 transition-all duration-500 ${
+                activeSection === section.id ? "bg-foreground" : "bg-muted-foreground/30 group-hover:bg-muted-foreground/60"
+              }`} />
+              <span className={`text-sm font-mono transition-all duration-500 ${
+                activeSection === section.id ? "text-foreground" : "text-muted-foreground/30 group-hover:text-muted-foreground/60"
+              }`}>
+                {section.label}
+              </span>
+            </button>
           ))}
         </div>
       </nav>
@@ -104,10 +120,7 @@ export default function ClientHome({ posts }: ClientHomeProps) {
 
               <div className="space-y-6 max-w-md">
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Software engineer specializing in
-                  <span className="text-foreground"> backend systems</span>,<span className="text-foreground"> AI/ML platforms</span>,
-                  and
-                  <span className="text-foreground"> distributed architectures</span>.
+                  I work on <span className="text-foreground">backend systems</span>, <span className="text-foreground">AI stuff</span>, and <span className="text-foreground">distributed architectures</span>. In my free time, I'm either breaking things on my home server or building weird projects.
                 </p>
 
                 <div className="flex items-center gap-4 text-sm text-muted-foreground">
@@ -133,7 +146,7 @@ export default function ClientHome({ posts }: ClientHomeProps) {
               <div className="space-y-4">
                 <div className="text-sm text-muted-foreground font-mono">FOCUS</div>
                 <div className="flex flex-wrap gap-2">
-                  {["Python", "TypeScript", "GoLang", "Redis", "PostgreSQL"].map((skill) => (
+                  {["Rust", "Python", "C++", "Redis", "RabbitMq", "AWS", "Docker"].map((skill) => (
                     <span
                       key={skill}
                       className="px-3 py-1 text-xs border border-border rounded-full hover:border-muted-foreground/50 transition-colors duration-300"
@@ -150,7 +163,7 @@ export default function ClientHome({ posts }: ClientHomeProps) {
         <section id="work" ref={(el) => (sectionsRef.current[1] = el)} className="min-h-screen py-32 opacity-0">
           <div className="space-y-16">
             <div className="flex items-end justify-between">
-              <h2 className="text-4xl font-light">Selected Work</h2>
+              <h2 className="text-4xl font-light">Work</h2>
               <div className="text-sm text-muted-foreground font-mono">2019 — 2025</div>
             </div>
 
@@ -161,12 +174,12 @@ export default function ClientHome({ posts }: ClientHomeProps) {
                   role: "Software Development Engineer",
                   company: "Edra Labs - BrowserStack Venture",
                   description: "Leading backend development for AI-driven content systems with RAG platforms achieving 98% retrieval precision and autonomous SEO optimization.",
-                  tech: ["Python", "TypeScript", "GoLang", "Redis", "PostgreSQL"],
+                  tech: ["Python", "TypeScript", "Langchain", "Langsmith", "EKS", "AC2", "PostgreSQL"],
                 },
                 {
                   year: "2023",
                   role: "Software Development Intern",
-                  company: "Health Claims Exchange",
+                  company: "Samagra | HCX",
                   description: "Implemented JWT authentication with RSA encryption and FHIR JSON validation for healthcare APIs.",
                   tech: ["JWT", "RSA Encryption", "Google Cloud", "FHIR"],
                 },
@@ -214,45 +227,12 @@ export default function ClientHome({ posts }: ClientHomeProps) {
 
         <section id="projects" ref={(el) => (sectionsRef.current[2] = el)} className="min-h-screen py-32 opacity-0">
           <div className="space-y-16">
-            <h2 className="text-4xl font-light">Selected Projects</h2>
+            <h2 className="text-4xl font-light">Some Projects</h2>
 
             <div className="grid lg:grid-cols-2 gap-8">
-              {[
-                {
-                  title: "RAG-Based Content System",
-                  description: "AI-driven content platform with retrieval-augmented generation achieving 98% precision in document retrieval and automated content optimization.",
-                  tech: ["Python", "Vector DB", "LangChain", "FastAPI"],
-                  year: "2024",
-                  status: "Production",
-                  slug: "rag-content-system"
-                },
-                {
-                  title: "Distributed Task Processing",
-                  description: "Scalable Celery-based task queue system handling 10k+ concurrent operations with Redis clustering and PostgreSQL optimization.",
-                  tech: ["Python", "Celery", "Redis", "PostgreSQL"],
-                  year: "2024",
-                  status: "Production",
-                  slug: "distributed-task-processing"
-                },
-                {
-                  title: "Healthcare API Gateway",
-                  description: "FHIR-compliant API with JWT authentication, RSA encryption, and real-time validation for secure healthcare data exchange.",
-                  tech: ["JWT", "RSA", "FHIR", "Google Cloud"],
-                  year: "2023",
-                  status: "Production",
-                  slug: "healthcare-api-gateway"
-                },
-                {
-                  title: "3D Renderer Enhancement",
-                  description: "Enhanced FURY renderer with glTF 2.0 support, keyframe animations, and advanced spline interpolation for scientific visualization.",
-                  tech: ["Python", "OpenGL", "glTF", "Computer Graphics"],
-                  year: "2022",
-                  status: "Open Source",
-                  slug: "3d-renderer-enhancement"
-                }
-              ].map((project, index) => (
+              {projects.map((project) => (
                 <Link
-                  key={index}
+                  key={project.slug}
                   href={`/projects/${project.slug}`}
                   className="block group h-full"
                   aria-label={`View ${project.title} details`}
@@ -280,23 +260,6 @@ export default function ClientHome({ posts }: ClientHomeProps) {
                           </span>
                         ))}
                       </div>
-                    </div>
-
-                    <div className="mt-auto flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                      <span>View details</span>
-                      <svg
-                        className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
                     </div>
                   </div>
                 </Link>
@@ -343,23 +306,6 @@ export default function ClientHome({ posts }: ClientHomeProps) {
                           </span>
                         ))}
                       </div>
-                    </div>
-
-                    <div className="mt-auto flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                      <span>Read more</span>
-                      <svg
-                        className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
                     </div>
                   </article>
                 </Link>
@@ -427,14 +373,13 @@ export default function ClientHome({ posts }: ClientHomeProps) {
         <footer className="py-16 border-t border-border">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8">
             <div className="space-y-2">
-              <div className="text-sm text-muted-foreground">© 2025 Shivam Anand. All rights reserved.</div>
-              <div className="text-xs text-muted-foreground">Built with Next.js and deployed on Vercel</div>
+              <div className="text-sm text-muted-foreground">© 2026 Shivam Anand.</div>
             </div>
 
             <div className="flex items-center gap-4">
               <button
                 onClick={toggleTheme}
-                className="group p-3 rounded-lg border border-border hover:border-muted-foreground/50 transition-all duration-300"
+                className="group p-3 rounded-full border border-border hover:border-muted-foreground/50 transition-all duration-300"
                 aria-label="Toggle theme"
               >
                 {isDark ? (
@@ -458,22 +403,6 @@ export default function ClientHome({ posts }: ClientHomeProps) {
                     <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                   </svg>
                 )}
-              </button>
-
-              <button className="group p-3 rounded-lg border border-border hover:border-muted-foreground/50 transition-all duration-300">
-                <svg
-                  className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors duration-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                  />
-                </svg>
               </button>
             </div>
           </div>
