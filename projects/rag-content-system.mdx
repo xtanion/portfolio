@@ -1,21 +1,43 @@
 ---
-title: "RAG-Based Content System"
-description: "AI-driven content platform with retrieval-augmented generation achieving 98% precision in document retrieval and automated content optimization."
+title: "A smart web-scrapper?"
+description: "We built a smart (kinda) webscrapper with 98% recall accuracy on production."
 year: "2024"
-status: "Production"
+status: "Edra Labs"
 tech: ["Python", "Vector DB", "LangChain", "FastAPI"]
 ---
 
-# RAG-Based Content System
+Here's a journey of how we build a smart web crawler before FireCrawl/etc existed.
 
-An AI-driven content platform leveraging retrieval-augmented generation to deliver highly precise document retrieval and automated content optimization at scale.
+## Story Time
+---
 
-## Overview
+(you may skip if you want)
 
-Built a production-grade RAG system that combines vector search with large language models to provide intelligent content recommendations and generation capabilities.
+Our task of building a smart web scrapper began when we tried to make a web srapper for web-archive/internet-archive. As you know, web archive is a corpus of massive snapshots of evey websites possible for the past 20 years.
+
+Initial implementation used scrapy (python) package to write custom webscrappers...but this got tedious too soon. We (team of 2) started to look out for better solutions.
+
+### Phase 1
+
+**Enter, the AI based scrapper**. This is where it all began, we realised that we can parse HTML pages as it is, convert the content to markdown and with the help of LLMs it's quite easy to classify each section. Parsing HTML to md wasn't very difficult either. This worked great for the PoC.
+
+But this didn't scaled well, because of the following reasons:
+
+1. Markdown conversion was lossy, critical DOM structure, hierarchy, and semantic context are discarded during conversion.
+2. Boilerplate content overwhelms signal, causing navigation, footers, and legal text to be misclassified as meaningful sections.
+3. Section boundaries become ambiguous, forcing the LLM to guess structural intent from flattened text.
+4. Images, pdfs and js-rendered content is often incomplete or missing, leading to inconsistent or partial extractions.
+5. Token usage scales poorly, as markdown inflates content size and forces aggressive chunking.
+6. Expensive AF!
+
+
+### Phase 2
+
+**RAG Approach** - 
+
 
 ## Key Features
-
+---
 - **98% Retrieval Precision**: Achieved industry-leading accuracy in document retrieval
 - **Automated Content Optimization**: ML-powered content enhancement and SEO optimization
 - **Scalable Architecture**: Handles millions of documents with sub-second query times
@@ -23,11 +45,7 @@ Built a production-grade RAG system that combines vector search with large langu
 
 ## Technical Stack
 
-The system is built using:
-- **Python** for core backend services
-- **LangChain** for LLM orchestration
-- **Vector DB** for semantic search
-- **FastAPI** for high-performance API endpoints
+Python, LangChain, Redis Queues (Yes, This exists), Qdrant (Open-source Vector DB)
 
 ## Impact
 

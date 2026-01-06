@@ -5,9 +5,31 @@ import { getProjectBySlug } from "../../../lib/projects"
 import { mdxComponents } from "../../../components/mdx-components"
 import { BackButton } from "../../../components/back-button"
 import { ThemeToggle } from "../../../components/theme-toggle"
+import { TableOfContents } from "../../../components/table-of-contents"
 
 type PageProps = {
   params: { slug: string }
+}
+
+function extractHeadings(content: string) {
+  const headingRegex = /^(#{2,3})\s+(.+)$/gm
+  const headings: { id: string; text: string; level: number }[] = []
+  let match
+
+  while ((match = headingRegex.exec(content)) !== null) {
+    const level = match[1].length
+    const text = match[2].trim()
+    const id = text
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^\w\-]+/g, '')
+      .replace(/\-\-+/g, '-')
+
+    headings.push({ id, text, level })
+  }
+
+  return headings
 }
 
 export function generateMetadata({ params }: PageProps): Metadata {
@@ -23,8 +45,12 @@ export default function ProjectPage({ params }: PageProps) {
   const project = getProjectBySlug(params.slug)
   if (!project) return notFound()
 
+  const headings = extractHeadings(project.content)
+
   return (
-    <main className="max-w-4xl mx-auto px-8 lg:px-16 py-24">
+    <div className="relative">
+      <TableOfContents headings={headings} />
+      <main className="max-w-4xl mx-auto px-8 lg:px-16 py-24">
       <nav className="mb-8 flex items-center justify-between">
         <BackButton />
         <ThemeToggle />
@@ -41,7 +67,7 @@ export default function ProjectPage({ params }: PageProps) {
           {project.tech.map((tech) => (
             <span
               key={tech}
-              className="px-3 py-1 text-xs text-muted-foreground bg-muted/30 rounded-full border border-border"
+              className="px-3 py-0.5 text-xs border border-border rounded-full hover:border-muted-foreground/50 transition-colors duration-300"
             >
               {tech}
             </span>
@@ -53,5 +79,6 @@ export default function ProjectPage({ params }: PageProps) {
         <MDXRemote source={project.content} components={mdxComponents} />
       </article>
     </main>
+    </div>
   )
 }

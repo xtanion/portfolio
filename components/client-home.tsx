@@ -206,7 +206,7 @@ export default function ClientHome({ posts, projects }: ClientHomeProps) {
                     {job.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 text-xs text-muted-foreground rounded group-hover:border-muted-foreground/50 transition-colors duration-500"
+                        className="px-3 py-1 h-max text-xs border border-border rounded-full hover:border-muted-foreground/50 transition-colors duration-300"
                       >
                         {tech}
                       </span>
@@ -242,12 +242,12 @@ export default function ClientHome({ posts, projects }: ClientHomeProps) {
                       </h3>
 
                       <p className="text-muted-foreground leading-relaxed">{project.description}</p>
-                      
+
                       <div className="flex flex-wrap gap-2">
                         {project.tech.map((tech) => (
                           <span
                             key={tech}
-                            className="px-2 py-1 text-xs text-muted-foreground bg-muted/30 rounded-md"
+                            className="px-3 py-1 text-xs border border-border rounded-full hover:border-muted-foreground/50 transition-colors duration-300"
                           >
                             {tech}
                           </span>
@@ -288,12 +288,12 @@ export default function ClientHome({ posts, projects }: ClientHomeProps) {
                       </h3>
 
                       <p className="text-muted-foreground leading-relaxed">{post.excerpt}</p>
-                      
+
                       <div className="flex flex-wrap gap-2">
                         {post.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="px-2 py-1 text-xs text-muted-foreground bg-muted/30 rounded-md"
+                            className="px-3 py-1 text-xs border border-border rounded-full hover:border-muted-foreground/50 transition-colors duration-300"
                           >
                             {tag}
                           </span>

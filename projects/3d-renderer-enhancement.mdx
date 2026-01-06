@@ -20,27 +20,25 @@ FURY is this cool Python library that scientists use to visualize medical scans 
 
 ## The Journey: From "It Loads!" to "It Moves!"
 
-### Week 1: The Coordinate System Plot Twist
-
 First challenge: loaded a model, and the textures were upside down. Classic. Turns out glTF thinks (0,0) is at the top-left, but VTK (what FURY uses) wants it at the bottom-left. One coordinate flip later, we were in business.
 
 ### Simple Animations (The Easy Part)
 
-Got basic translation, rotation, and scaling working pretty quickly. Convert some binary data to NumPy arrays, hook up a timeline, boom—things move.
+So I thought, But it was far from easy. First of all, I had no clue how animations work behind the scene. So I went to the library, picked up the Computer Graphics book and applied a binary search on the content. I had a basic gist of how things work now. Also, huge thanks to [Mohamed](https://github.com/m-agour) for explaining the animation pipeline that he wrote. Got basic translation, rotation, and scaling working pretty quickly. Convert some binary data to NumPy arrays, hook up a timeline, boom! things move.
 
 ![Simple animations in action](https://user-images.githubusercontent.com/74976752/217645594-6054ea83-12e5-4868-b6a1-eee5a154bd26.gif)
 
-*Spinning boxes never gets old*
+*I was in love with these Spinning boxes*
 
 ### Morphing: When Cubes Get Weird
 
-Morphing is basically vertex animation—you tell each vertex "hey, move over here a bit" and blend between poses. Implementing this meant wrestling with morph targets and weighted blending. But when it finally worked...
+Morphing is basically vertex animation, you tell each vertex "hey, move over here a bit" and blend between poses. Implementing this meant wrestling with morph targets and weighted blending. But when it finally worked...
 
 ![Morphing animation demo](https://user-images.githubusercontent.com/74976752/217645485-153ec403-6c87-4282-8907-30d921106b34.gif)
 
 *The AnimatedMorphCube doing its thing*
 
-[Check out the morphing video](https://user-images.githubusercontent.com/74976752/192871376-881fbdd6-2fab-4a7f-9f4f-07663d93561c.mp4) — it's weirdly mesmerizing.
+At this point, I would show any of these features to my friends, They will say "I'm a mad scientist", and I'm obsessed with cubes.
 
 ### Skeletal Animation: The Final Boss
 

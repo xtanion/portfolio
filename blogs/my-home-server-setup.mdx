@@ -1,0 +1,157 @@
+---
+title: "I Built a Home Server"
+excerpt: "Learning about self hosting, contol. access management and a computer networks"
+date: "Jan 2025"
+readTime: "8 min"
+tags: ["Self Hosted", "OSS", "Linux", "Debian", "Docker", "ESP"]
+---
+
+Over the last few months, I’ve been gradually building a **home server** that I actually *use* every day. What started as a simple experiment turned into a powerful, self-hosted environment running services I rely on—without depending on third-party clouds.
+
+This blog walks through **why I built it, what I’m running, and how everything fits together**.
+
+---
+
+## Why I Built a Home Server
+
+As a backend engineer, I wanted more than just a VPS:
+
+- Full **control over infrastructure**
+- A place to **experiment safely**
+- No recurring cloud bills
+- A deeper understanding of **networking, Linux, Docker, and automation**
+
+Self-hosting forces you to confront real-world problems: DNS, SSL, backups, monitoring, and failure recovery. That’s exactly the learning I was looking for.
+
+---
+
+## Hardware Overview
+
+I intentionally avoided racks and enterprise gear. My priorities were **low power, silent operation, and reliability**.
+
+**Current setup:**
+- Mini PC (x86)
+- 16 GB RAM
+- SSD for OS + containers
+- HDD for backups and bulk storage
+- Wired Ethernet (no Wi-Fi for the server)
+
+This runs 24/7 without noticeable power or noise impact.
+
+---
+
+## Operating System & Base Setup
+
+I’m running a **minimal Debian-based Linux distribution**.
+
+Key choices:
+- No desktop environment
+- SSH-only access
+- Firewall enabled
+- Automatic security updates
+- Custom SSH port + key-based login only
+
+Keeping the OS minimal reduces attack surface and keeps maintenance simple.
+
+---
+
+## Containerization with Docker
+
+Everything runs inside **Docker containers**, managed via Docker Compose.
+
+Why Docker?
+- Clean isolation
+- Easy upgrades
+- Reproducible setup
+- Fast rollback if something breaks
+
+Each service lives in its own compose file with persistent volumes mapped to disk.
+
+---
+
+## Services I’m Running
+
+### 1. Reverse Proxy & SSL
+All services are routed through a reverse proxy:
+- Automatic HTTPS
+- One public IP, many services
+- Clean subdomain-based routing
+
+### 2. Home Automation
+I run a local home automation server to control:
+- Lights
+- Sensors
+- Bluetooth/Zigbee devices
+
+Everything works **locally**, even if the internet goes down.
+
+### 3. Media & File Sharing
+- Private file-sharing service
+- Local media streaming
+- LAN-first, cloud-optional access
+
+### 4. Monitoring & Logs
+- System metrics (CPU, memory, disk)
+- Container health checks
+- Logs centralized for debugging
+
+If something breaks, I know *why*.
+
+---
+
+## Networking & Remote Access
+
+My ISP doesn’t provide a static IP, so I use:
+- Dynamic DNS
+- Reverse tunneling for secure access
+- No exposed services without authentication
+
+Security always comes before convenience.
+
+---
+
+## Backups & Data Safety
+
+One rule: **assume the disk will fail**.
+
+My strategy:
+- Nightly backups to a secondary drive
+- Configuration files version-controlled
+- Encrypted backups for sensitive data
+
+Rebuilding the server from scratch takes under an hour.
+
+---
+
+## What I Learned
+
+This setup taught me more than most cloud tutorials ever could:
+
+- Linux internals
+- Real networking (NAT, DNS, ports)
+- Docker beyond “hello world”
+- Security tradeoffs
+- How systems fail in practice
+
+Most importantly, it gave me **confidence**. I know exactly what’s running, where my data lives, and how to fix things when they break.
+
+---
+
+## What’s Next
+
+Planned upgrades:
+- Local AI / LLM inference
+- Custom voice assistant backend
+- Smarter monitoring & alerting
+- Power usage optimization
+
+This server isn’t “done”—it’s a living system.
+
+---
+
+## Final Thoughts
+
+A home server isn’t about replacing the cloud.  
+It’s about **understanding it**.
+
+If you’re a developer who enjoys building systems end-to-end, I highly recommend setting one up. Start small. Break things. Learn fast.

@@ -1,12 +1,24 @@
 import type * as React from "react"
 
+function slugify(text: string): string {
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w\-]+/g, '')
+    .replace(/\-\-+/g, '-')
+}
+
 export const mdxComponents = {
-  h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h2 className="text-2xl lg:text-3xl font-medium tracking-tight mt-10 mb-4" {...props} />
-  ),
-  h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h3 className="text-xl lg:text-2xl font-medium mt-8 mb-3" {...props} />
-  ),
+  h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => {
+    const id = props.children ? slugify(props.children.toString()) : undefined
+    return <h2 id={id} className="text-2xl lg:text-3xl font-medium tracking-tight mt-10 mb-4" {...props} />
+  },
+  h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => {
+    const id = props.children ? slugify(props.children.toString()) : undefined
+    return <h3 id={id} className="text-xl lg:text-2xl font-medium mt-8 mb-3" {...props} />
+  },
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p className="text-muted-foreground leading-relaxed my-4" {...props} />
   ),
