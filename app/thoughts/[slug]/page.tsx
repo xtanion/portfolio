@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { MDXRemote } from "next-mdx-remote/rsc"
-import { getPostBySlug } from "../../../lib/posts"
+import { getPostBySlug, getAllPosts } from "../../../lib/posts"
 import { mdxComponents } from "../../../components/mdx-components"
 import { BackButton } from "../../../components/back-button"
 import { ThemeToggle } from "../../../components/theme-toggle"
@@ -9,6 +9,13 @@ import { TableOfContents } from "../../../components/table-of-contents"
 
 type PageProps = {
   params: { slug: string }
+}
+
+export function generateStaticParams() {
+  const posts = getAllPosts()
+  return posts.map((post) => ({
+    slug: post.slug,
+  }))
 }
 
 function extractHeadings(content: string) {
