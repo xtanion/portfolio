@@ -6,35 +6,24 @@ readTime: "8 min"
 tags: ["Self Hosted", "OSS", "Linux", "Debian", "Docker", "ESP"]
 ---
 
-Over the last few months, I’ve been gradually building a **home server** that I actually *use* every day. What started as a simple experiment turned into a powerful, self-hosted environment running services I rely on—without depending on third-party clouds.
+Over the last few months, I’ve been gradually building a **home server** that I actually *use* every day. Why? You may ask, basically to be free of the usual internet (and also because Gilfoyle from silicon valley conviced me to build my own Anton).
 
 This blog walks through **why I built it, what I’m running, and how everything fits together**.
 
----
 
 ## Why I Built a Home Server
 
 As a backend engineer, I wanted more than just a VPS:
 
-- Full **control over infrastructure**
-- A place to **experiment safely**
-- No recurring cloud bills
+- Full **control over infrastructure** (while AWS and GCP are good, all the internal workings are kinda abstracted)
+- A place to **experiment safely** ()
 - A deeper understanding of **networking, Linux, Docker, and automation**
+- Most importantly, A Media Server (I was soo tired of having multiple streaming platforms just not having the content I wanna watch!)
 
-Self-hosting forces you to confront real-world problems: DNS, SSL, backups, monitoring, and failure recovery. That’s exactly the learning I was looking for.
 
----
+## Hardware
 
-## Hardware Overview
-
-I intentionally avoided racks and enterprise gear. My priorities were **low power, silent operation, and reliability**.
-
-**Current setup:**
-- Mini PC (x86)
-- 16 GB RAM
-- SSD for OS + containers
-- HDD for backups and bulk storage
-- Wired Ethernet (no Wi-Fi for the server)
+some shit
 
 This runs 24/7 without noticeable power or noise impact.
 
@@ -42,7 +31,7 @@ This runs 24/7 without noticeable power or noise impact.
 
 ## Operating System & Base Setup
 
-I’m running a **minimal Debian-based Linux distribution**.
+I’m running a **Debian-based Linux distribution**.
 
 Key choices:
 - No desktop environment

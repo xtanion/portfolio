@@ -40,15 +40,22 @@ export const metadata: Metadata = {
     title: 'xtanion - Shivam Anand | Software Engineer',
     description: 'Software engineer specializing in backend systems, AI/ML platforms, and distributed architectures.',
     siteName: 'xtanion',
+    images: [{
+      url: '/portfolio/banner.png',
+      width: 1200,
+      height: 630,
+      alt: 'Shivam Anand - Software Developer',
+    }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'xtanion - Shivam Anand | Software Engineer',
     description: 'Software engineer specializing in backend systems, AI/ML platforms, and distributed architectures.',
     creator: '@xtanion',
+    images: ['/portfolio/banner.png'],
   },
   icons: {
-    icon: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐧</text></svg>",
+    icon: '/portfolio/penguin.svg',
   },
   alternates: {
     canonical: 'https://xtanion.github.io/portfolio',
